@@ -15,11 +15,23 @@
 			}catch(PDOException $e){ echo $e->getMessage();}
 		}
 		
+		function UpdateNotification($ref_id)
+		{
+		
+			$ok;
+				$sql="UPDATE service_request_respon SET status ='read' WHERE serve_post_respid=$ref_id";
+				// echo $sql;
+				try{
+					$stmt=$this->conn->prepare($sql);
+					$ok=$stmt->execute();
+				}catch(PDOException $e){ echo $e->getMessage();}
+				return $ok;
+		}
 		function Notification($ref_id)
 		{
 			$rows;
-			$sql="SELECT serve_post_respid,biddesc,bid,date,service_request_respon.status,lastname FROM mechanic,service_request_respon ,service_request where service_request_respon.servreqid = service_request.servreqid && service_request_respon.status = 'unread' && service_request.motoristid = $ref_id && service_request_respon.mechanicid = mechanic.mechanicid order by date";
-			
+			$sql="SELECT serve_post_respid,biddesc,bid,date,service_request_respon.status,lastname FROM mechanic,service_request_respon ,service_request where service_request_respon.servreqid = service_request.servreqid && service_request.motoristid = 24 && service_request_respon.mechanicid = mechanic.mechanicid order by date";
+				// echo $sql; die;
 			try{
 				$stmt=$this->conn->prepare($sql);
 				$stmt->execute();
@@ -29,18 +41,18 @@
 		}
 		function getSRRbyID($ref_id)
 		{
-			$sql = "SELECT * FROM $table WHERE $field_id = ?";
+			$sql = "SELECT * FROM service_request_respon,mechanic ,service_request WHERE serve_post_respid = $ref_id && service_request_respon.mechanicid = mechanic.mechanicid && service_request.servreqid = service_request_respon.servreqid";
 			try{
 			$stmt = $this->conn->prepare($sql);
-			$stmt->execute(array($ref_id));
-			$row = $stmt->fetchall(PDO::FETCH_ASSOC);
+			$stmt->execute();
+			$row = $stmt->fetch(PDO::FETCH_ASSOC);
 			}catch(PDOException $e){ echo $e->getMessage();}
 			return $row;
 		}
 		function Notification1($ref_id)
 		{
 			$rows;
-				$sql="SELECT serve_post_respid,biddesc,bid,date,service_request_respon.status,lastname FROM mechanic,service_request_respon ,service_request where service_request_respon.servreqid = service_request.servreqid && service_request.motoristid = $ref_id && service_request_respon.mechanicid = mechanic.mechanicid order by date";
+				$sql="SELECT serve_post_respid,biddesc,bid,date,service_request_respon.status,lastname FROM mechanic,service_request_respon ,service_request where service_request_respon.servreqid = service_request.servreqid && service_request.motoristid =$ref_id && service_request_respon.mechanicid = mechanic.mechanicid && service_request_respon.status='unread'order by date";
 				
 				try{
 					$stmt=$this->conn->prepare($sql);
@@ -167,5 +179,5 @@
 				}catch(PDOException $e){ echo $e->getMessage();}
 				return $ok;
 			}			
-	}//end of class
+	}//end of classsaddasgi
 ?>

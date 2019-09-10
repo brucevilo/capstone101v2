@@ -9,6 +9,7 @@
 		function __construct()	{	$this->dbconn=new DBHelper();}
 		function getAllServiceRequestRespon1($ref_id)	{	return $this->dbconn->Notification1($ref_id);}
 		function getAllServiceRequestRespon($ref_id)	{	return $this->dbconn->Notification($ref_id);}
+		function getAllServiceRequestResponUpdate($ref_id)	{	return $this->dbconn->UpdateNotification($ref_id);}
 		function getAllServiceRequestResponId($ref_id)	{	return $this->dbconn->getSRRbyID($ref_id);}		
 		function createServiceRequestRespon($data) { return $this->dbconn->insertRecord($this->table,$this->fieldnames,$data);}
 		function deleteServiceRequestRespon($ref_id) { return $this->dbconn->deleteRecord($this->table,$this->field_id,$ref_id);}

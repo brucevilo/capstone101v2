@@ -3,7 +3,10 @@ session_start();
   if(!isset($_SESSION['motorist'])){
     header("location:index.php");
   }
-include('../model/dbhelper.php');
+  $ref_id = "12";
+                             
+  include('../controller/getIdSRR.php'); ?>
+	  
 
  ?> 
 <!DOCTYPE html>
@@ -160,9 +163,7 @@ include('../model/dbhelper.php');
 											</li>
 
 									<!-- notification start -->
-								<?php
-									$row =Notification();
-								?>	
+							
   												<li>
 												  <div class="dropdown shop-card-dropdown">
 												<a class="dropdown-toggle dropdown-shopping-cart" href="#" role="button" id="dropdown-shopping-cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

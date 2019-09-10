@@ -195,10 +195,10 @@ session_start();
 												<a class="dropdown-toggle dropdown-shopping-cart" href="#" role="button" id="dropdown-shopping-cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 													<i class="ico-shopping-bag"></i>
 											<?php
-											  if(count($row1)>0){
+											  if(count($rows)>0){
 											?>		
-													<span class="badge bg-maincolor"><?php echo count($row1);?></span>
-												
+													<span class="badge bg-maincolor"><?php echo count($rows);?></span>
+											  <?php }?>
 												</a>
 												<div class="dropdown-menu dropdown-menu-right ls" aria-labelledby="dropdown-shopping-cart">
 												
@@ -222,7 +222,7 @@ session_start();
 																		</div>
 											<?php
 												  }
-												else{
+										  if($rows['status']=='read'){
 											?>		
 														<div class="widget_shopping_cart_content">		
 																						
@@ -242,11 +242,9 @@ session_start();
 											 <?php 
 												}
 												  }
-											 }
 											 
-											 else {
-												 echo "No Notifications yet.";									 
-												}		
+											 
+								
 											 ?>
 												</li>				
 
