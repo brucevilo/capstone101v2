@@ -27,7 +27,7 @@
 			}catch(PDOException $e){ echo $e->getMessage();}
 			return $rows;
 		}
-		function getSRRbyID($ref_id)
+		func~tion getSRRbyID($ref_id)
 		{
 			$sql = "SELECT * FROM $table WHERE $field_id = ?";
 			try{

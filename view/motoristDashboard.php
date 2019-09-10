@@ -243,7 +243,7 @@ session_start();
 												}
 												  }
 											 }
-											
+											 
 											 else {
 												 echo "No Notifications yet.";									 
 												}		
