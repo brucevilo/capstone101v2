@@ -27,7 +27,7 @@
 			}catch(PDOException $e){ echo $e->getMessage();}
 			return $rows;
 		}
-		func~tion getSRRbyID($ref_id)
+		function getSRRbyID($ref_id)
 		{
 			$sql = "SELECT * FROM $table WHERE $field_id = ?";
 			try{
@@ -40,10 +40,10 @@
 		function Notification1($ref_id)
 		{
 			$rows;
-			$sql="SELECT serve_post_respid,biddesc,bid,date,service_request_respon.status,lastname FROM mechanic,service_request_respon ,service_request where service_request_respon.servreqid = service_request.servreqid && service_request.motoristid = $ref_id && service_request_respon.mechanicid = mechanic.mechanicid order by date";
-			
-			try{
-				$stmt=$this->conn->prepare($sql);
+				$sql="SELECT serve_post_respid,biddesc,bid,date,service_request_respon.status,lastname FROM mechanic,service_request_respon ,service_request where service_request_respon.servreqid = service_request.servreqid && service_request.motoristid = $ref_id && service_request_respon.mechanicid = mechanic.mechanicid order by date";
+				
+				try{
+					$stmt=$this->conn->prepare($sql);
 				$stmt->execute();
 				$rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
 			}catch(PDOException $e){ echo $e->getMessage();}
