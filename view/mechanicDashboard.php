@@ -1,8 +1,8 @@
 <?php
 session_start();
-  if(!isset($_SESSION['mechanic'])){
-    header("location:index.php");
-  }
+if(!isset($_SESSION['mechanic'])){
+  header("location:index.php");
+}
  ?> 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -156,7 +156,66 @@ session_start();
 											<li>
 												<a href="mechanicProfile.php">Profile</a>
 											</li>
-											<li>
+											</li>
+						<?php     include('../controller/getallSr.php');?>
+									<!-- notification start -->
+  												<li>
+												  <div class="dropdown shop-card-dropdown">
+												<a class="dropdown-toggle dropdown-shopping-cart" href="#" role="button" id="dropdown-shopping-cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+													<i class="ico-shopping-bag"></i>
+											<?php
+											  if(count($noti1)>0){
+											?>		
+													<span class="badge bg-maincolor"><?php echo count($noti1);?></span>
+											  <?php }?>
+												</a>
+												<div class="dropdown-menu dropdown-menu-right ls" aria-labelledby="dropdown-shopping-cart">
+												
+												<div class="widget woocommerce widget_shopping_cart">
+														<h4>Car<span class="text-gradient">Notification</span></h4>
+											<?php 
+											 foreach ($noti as $notis){ 
+												  if($notis['notification']=='unread'){?>	
+												 		
+														<div class="widget_shopping_cart_content">												
+														<?php echo "<a href='mechanicSRAdeatails.php?id=".$notis['sra_id']."'>";?>
+																	<small><i><?php echo date('F j, Y, g:i a',strtotime($notis['date']));?></i></small><br>
+																		<span class="product-title fw-500">Mr/Ms.<?php echo $notis['lastname'];?> Accepted your qoute.</span>
+												  </b>
+																	</a>
+															
+																		<!-- <a href="#" class="remove" aria-label="Remove this item" data-product_id="73" data-product_sku=""><i class="fs-14 ico-trash color-main"></i></a> -->
+																		
+																	</div>
+
+																		</div>
+											<?php
+												  }
+										  if($notis['notification']=='read'){
+											?>		
+														<div class="widget_shopping_cart_content">		
+																						
+														<?php		
+														echo "<a href='paypal.php?id=".$notis['sra_id']."'>";?>
+																			<small><i><?php echo date('F j, Y, g:i a',strtotime($notis['date']));?></i></small><br>
+																				<span class="">Mr/Ms. 	<?php echo $notis['lastname'];?> Accepted your qoute.</span>
+																	<!-- </a> -->
+															
+																		<!-- <a href="#" class="remove" aria-label="Remove this item" data-product_id="73" data-product_sku=""><i class="fs-14 ico-trash color-main"></i></a> -->
+																		
+																	</div>
+
+																		</div>
+																	
+											 <?php 
+												}
+												  }
+											 
+											 
+								
+											 ?>
+												</li>				
+
 											<li>
 												<a href="logout.php">Logout</a>
 											<li>
@@ -177,7 +236,7 @@ session_start();
 
 				</header>
 				<?php
-            include('../controller/getallSR.php');
+        
           
             			
             foreach($rows as $row){
@@ -191,7 +250,7 @@ session_start();
 										// echo "<img src='../controller/images/9383-car-repair-362150_960_720.jpg alt=''>";
 										// echo "img src='../controller/images/".$row['vehicle_imaged'];
 										echo "<div class='media-links'>";
-										echo "<a class='abs-link' title='' href='mechViewCar.php?id=".$row['vehicle_plateno']."'></a>";	
+										echo "<a class='abs-link' title='' href='mechViewCar.php?id=".$row['servreqid']."'></a>";	
 									echo "		</div>
                                     </div>
                                 </div>";
@@ -210,7 +269,8 @@ session_start();
 										echo  strtoupper("<h6>Brand :".$row['vehicle_brand']."<br/>") ;		
 										// echo "</span>
 										// 		<span>";
-                                        echo  strtoupper("Model :".$row['vehicle_model']."</span></h6>");
+										echo  strtoupper("Model :".$row['vehicle_model']."</span></h6>");
+                                        echo  strtoupper("Address :".$row['city']."</span></h6> <br/>");
                                         echo  strtoupper("<h7>More Info :".$row['problems']."</span><br/>");
 										
 										echo "<a href='mechViewCar.php?id=".$row['servreqid']."'  class='btn btn-small btn-outline-maincolor btn-appointment' >View Details</a>";

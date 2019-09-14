@@ -35,7 +35,7 @@ $status = "1";
 $data = [$vehicle_plateno,$motorist_email,$service_date,$problems,$service,
         $latlang,$city,$service_status,$status];
 $row=$sr->createServiceRequest($data);
-
+print_r($data); die;
 if($row>0)
 {
     echo "<script>alert('Please wait for a mechanic to responce!');window.location='../view/motoristDashboard.php'</script>";

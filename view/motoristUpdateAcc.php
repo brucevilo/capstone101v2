@@ -211,35 +211,25 @@ session_start();
 								}
 							</style>
 							<div class="center">
-                                <form action="../controller/addServiceRequestAccepted.php" method="post">
-                                <?php 
-                                $ref_id = $_GET['id'];
-                             
-                                include('../controller/getIdSRR.php'); ?>
-								
-                                    <input type="hidden" value ="<?php echo $row['serve_post_respid'];?>"name="serve_post_respid" >
-									<div class="form-group has-placeholder">
-								<b>Sender Name :</b> <a href = "mechanicProfile1.php?id=<?php echo $row['mechanicid']?>"><?php echo strtoupper($row['lastname']).", ".strtoupper ($row['firstname']) ?></a>
-									<br/>
-									<b>Car Plate No :</b> <?php echo strtoupper($row['vehicle_plateno'])?>
-									<br/>
-									<b>Car Problems :</b> <?php echo strtoupper($row['service'])?>
-									<br/>
-									<b>Problem Description:</b> <?php echo strtoupper($row['problems'])?>
-									<br/>
-									<b>Mechanic's Estimated Cost:</b> <?php echo strtoupper($row['bid'])?>
-									<br/>
-									<b>Mechanic's Qoute:</b> <?php echo strtoupper($row['biddesc'])?>
-									<br/>
-									<input type="text" placeholder="Contact Number" name="contactno" required>
-									<br/>
-									<input type="text" placeholder ="Address" name="addresss" required>
-									</div>	
-								
-									<input type="checkbox" placeholder ="" name="address" required>I agree with your term's and Agreements.
-									</div>	
+                            <form action="../controller/updatemotorist.php" method="post">
+                                <?php
+ $ref_id = $_SESSION['motorist'];
+  include('../controller/getMotoristById.php');?> 
+
+                            <input type="hidden" value="<?php echo $row['password']?>" name="password">  
+                              Lastname:  <input type="text" value="<?php echo $row['lastname']?>" name="lastname">  
+                              <br>
+                                Firstname:  <input type="text" value="<?php echo $row['firstname']?>" name="firstname">  
+                                <br>
+                               Email:      <input type="text" value="<?php echo $row['email']?>" name="email">  
+                              <br>
+                              Address:      <input type="text" value="<?php echo $row['address']?>" name="address">  
+                              <br>
+                               Contact Number: <input type="text" value="<?php echo $row['contact_number']?>" name="contact_number">
+                               <br> 
+                      	
 									
-                                    <button type="submit" name="btnSRR" class="btn btn-small btn-maincolor log-btn">Accept</button>
+                                    <button type="submit" name="UpAcc" class="btn btn-small btn-maincolor log-btn">Accept</button>
                                     <a href="motoristDashboard.php"  class="btn btn-small btn-maincolor log-btn">Cancel</a>
 							</div>
 							<!-- <h6 class="mt-0">Stay Tuned!</h6>		

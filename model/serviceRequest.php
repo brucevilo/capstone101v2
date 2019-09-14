@@ -13,6 +13,9 @@ class ServiceRequest
 
         // var_dump($this->fieldnames); die;
     function __construct()	{	$this->dbconn=new DBHelper();}
+    function mechanicNoto($ref_id) {return $this->dbconn->Notification2($ref_id); }
+    function mechanicNoto1($ref_id) {return $this->dbconn->Notification3($ref_id); }
+
     function getSinlgeSr($ref_id,$ref_field){ return $this->dbconn->getSingleService($ref_id,$ref_field);}
     function getAllSr(){return $this->dbconn->getAllService(); }
     function getAllServiceRequest($ref_id,$field_id)	{	return $this->dbconn->getRecordById($this->table,$ref_id,$field_id);}	

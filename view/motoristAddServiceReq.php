@@ -224,11 +224,11 @@ session_start();
                     
 				<br/>
 				<span>Car Plate No :</span> <?php echo $_GET['plateno']?>
-				<input type="hidden" value ="<?php $_GET['plateno']?>" class="form-control" id="vehicle_plateno"  name="vehicle_plateno" >
+				<input type="hidden" value ="<?php echo $_GET['plateno']?>" class="form-control" id="vehicle_plateno"  name="vehicle_plateno" >
 							
 								<div class="form-group has-placeholder">
 							
-								<input type="date" class="form-control" id="request_date"  name="request_date" require>
+								<input type="date" class="form-control" id="request_date"  name="request_date" required>
 								</div>
                        
 								<div class="form-group has-placeholder">
@@ -260,10 +260,10 @@ session_start();
                                 
 								
 								<div class="form-group has-placeholder">
-								<input type="text" name ="city" id="city" placeholder="Enter Address">
+								<input type="text" name ="city" id="city" placeholder="Enter Address" required>
 								</div>
 								<div class="form-group has-placeholder">
-								<textarea cols="30" rows="4.1" name="problems" id ="problems" placeholder="More specific..."></textarea>
+								<textarea cols="30" rows="4.1" name="problems" id ="problems" placeholder="More specific..." required></textarea>
 								</div>
                                 	
 								<div class="form-group has-placeholder">

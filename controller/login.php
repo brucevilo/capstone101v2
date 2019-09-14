@@ -25,7 +25,6 @@ if(!empty($row))
             $ref_id = $email;
             $data=$db->getId($table,$field_id,$ref_id);
             $id =$data['motoristid'];
-       
             $_SESSION['motorist'] = $id; 
             $_SESSION['user_id'] = $user_id;
             
@@ -37,11 +36,12 @@ if(!empty($row))
         $table = "mechanic";
         $field_id = "email";
         $ref_id = $email;
+        // echo $email;
         $data=$db->getId($table,$field_id,$ref_id);
         $id =$data['mechanicid'];
+       
         $_SESSION['mechanic'] = $id; 
         $_SESSION['user_id'] = $user_id;
-        // die;
         echo "<script>alert('Successfully Login');window.location='../view/mechanicDashboard.php'</script>";
     }
     

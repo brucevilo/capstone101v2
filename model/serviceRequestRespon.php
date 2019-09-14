@@ -7,6 +7,7 @@
 		private $dbconn;
 			// var_dump($this->fieldnames); die;
 		function __construct()	{	$this->dbconn=new DBHelper();}
+		function getMotoristSRR($ref_id ) {	return $this->dbconn->getMotoristSrr($ref_id);}
 		function getAllServiceRequestRespon1($ref_id)	{	return $this->dbconn->Notification1($ref_id);}
 		function getAllServiceRequestRespon($ref_id)	{	return $this->dbconn->Notification($ref_id);}
 		function getAllServiceRequestResponUpdate($ref_id)	{	return $this->dbconn->UpdateNotification($ref_id);}

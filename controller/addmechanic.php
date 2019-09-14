@@ -38,8 +38,8 @@ $ok =$mechanic->createMechanic($data);
 $status="active";
 $data = [$email,$password,$user_type,$status];
 $ok =$user->addUser($data); 
-
-echo "<script>alert('Successfully Registered.');window.location='../view/mechanicRegistration.html'</script>";
+// var_dump($ok); die;
+echo "<script>alert('Successfully Registered.');window.location='../view/index.php'</script>";
 }
 }
 

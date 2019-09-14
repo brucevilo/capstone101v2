@@ -205,7 +205,7 @@ session_start();
 								<div class="item-media post-thumbnail rounded-top">
 								<?php echo	"<img src='../controller/images/".$rows['vehicle_image']."'>"; ?>
 								</div>
-								
+							
 								<div class="item-content">
 									<div class="divider-7"></div>
 									<div class="entry-meta item-meta color-darkgrey mb-20">
@@ -221,7 +221,33 @@ session_start();
 									</div>
 									<!-- .entry-meta -->
 									<hr>
+<!-- map -->
+<style>
+#map {overflow:hidden!important; height:300px}
+</style>
+		<div id="map" ></div>
+    <script>
 
+      function initMap() {
+		// 10.3111";s:19:"geoplugin_longitude";s:8:"123.8917
+        var myLatLng = {lat:10.3555125, lng: 123.9521501};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 18,
+          center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Hello World!'
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpPsipq7KmnGpRp-3Dp9gkYrRUTGM2OJ4&callback=initMap">
+    </script>
+<!-- end of map -->
 									<div class="entry-content">
 										<p class="excerpt">
 											<span><h6>	Car Brand: <?php echo strtoupper($rows['vehicle_brand']);?>
@@ -231,22 +257,12 @@ session_start();
 										</p>
 
 										<p>
-											At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-											sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor amet consetetur sadipscing elitr, sed diam
-											nonumy eirmod tempor invidunt.
-										</p>
+										<h5 id="reply-title" class="fw-700 comment-reply-title">Car<span class="text-gradient">Problems  :   </span>&nbsp;&nbsp;<?php echo $rows['service']?> 
 
-										<ul class="list1">
-											<li>Consetetur sadipscing elitr, sed diam nonumy</li>
-											<li>Eirmod tempor invidunt ut labore</li>
-											<li>Dolore magna aliquyam erat</li>
-											<li>Sed diam voluptua. At vero eos accusam</li>
-										</ul>
+									
 
 										<p>
-											At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-											sanctusamet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-											invidunt ut labore et dolore magna aliquyam erat.
+										<h5 id="reply-title" class="fw-700 comment-reply-title">More<span class="text-gradient">Details    :  </span >&nbsp;&nbsp;<?php echo $rows['problems']?>
 										</p>
 
 

@@ -1,8 +1,8 @@
 <?php
 session_start();
-//   if(!isset($_SESSION['mechanic'])){
-//     header("location:index.php");
-//   }
+  if(!isset($_SESSION['mechanic'])){
+    header("location:index.php");
+  }
  ?> 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -175,33 +175,37 @@ session_start();
 
 					<span class="toggle_menu"><span></span></span>
 
-				</header>
-<!-- 
-				<section class="page_title ds s-pt-105 s-pb-50 s-pt-lg-115 s-pb-lg-60">
+				</header>					
+<section class="page_title ds s-pt-105 s-pb-50 s-pt-lg-115 s-pb-lg-60">
 					<div class="divider-3 d-none d-lg-block"></div>
 					<div class="container">
 						<div class="row">
 
 							<div class="col-md-12">
-								
-	
+								<h1 class="bold text-center text-lg-left">Car Details</h1>
 							</div>
 
 						</div>
 					</div>
-				</section> -->
+				</section>
 
- <?php
- $ref_id = $_SESSION['mechanic'];
-  include('../controller/getMechanicByID.php');?> 
 
-				<section class="ls s-py-60 s-py-lg-100 s-py-xl-150 c-gutter-60">
+			</div>
+<?php
+   $ref_id =$_GET['id'];
+	include('../controller/getVehicleById.php');
+	foreach($row as $rows){
+
+?>		  			
+
+
+<section class="ls s-py-60 s-py-lg-100 s-py-xl-150 c-gutter-60">
 				<div class="container">
 					<div class="row">
 						<main class="offset-lg-1 col-lg-10">
 							<article class="vertical-item post type-event status-publish format-standard has-post-thumbnail events-post single-post">
 								<div class="item-media post-thumbnail rounded-top">
-								<h5><?php echo strtoupper($row['lastname']).", ".strtoupper($row['firstname']); ?></h5>
+								<?php echo	"<img src='../controller/images/".$rows['vehicle_image']."'>"; ?>
 								</div>
 							
 									<!-- .entry-meta -->
@@ -209,19 +213,16 @@ session_start();
 
 									<div class="entry-content">
 										<p class="excerpt">
-										<span><h6>Email Address:  &nbsp;&nbsp; <?php echo strtoupper($row['email']);?></span>
+										<span><h6>Car Brand:  &nbsp;&nbsp; <?php echo strtoupper($rows['vehicle_brand']);?></span>
 										<br>
-											Contact Number : &nbsp;&nbsp; <?php echo strtoupper($row['contact_number']);?>
+											Car Model/ Year : &nbsp;&nbsp; <?php echo strtoupper($rows['vehicle_model']);?>
 										<br>
-										Home Address  :   </span>&nbsp;&nbsp;<?php echo $row['address']?> 
+										Plate Number  :   </span>&nbsp;&nbsp;<?php echo $rows['vehicle_plateno']?> 
 									<br>
-									Specialty   :  </span >&nbsp;&nbsp;<?php echo $row['mechtype']?>
+									Registration Number    :  </span >&nbsp;&nbsp;<?php echo $rows['vehicle_regno']?>
 									</h6>
 									</p>
-									<p class="form-submit">
-											<a type="button" href="mechanicUpdateAcc.php" class="btn btn-small btn-maincolor">Edit Account Details</a>
-											<a type="button" href="mechanicChangePass.php" class="btn btn-small btn-maincolor">Change Password</a>
-										</p>
+
 
 									</div>
 									<!-- .entry-content -->
@@ -229,11 +230,12 @@ session_start();
 								</div>
 								<!-- .item-content -->
 							</article>
-
+<?php }
+	?>
 
 
 							<div id="comments" class="post-comments comments-area rounded">
-								<h4 id="reply-title" class="fw-700 comment-reply-title">Mechanic<span class="text-gradient">History</span></h4>
+								<h4 id="reply-title" class="fw-700 comment-reply-title">Leave<span class="text-gradient">Comment</span></h4>
 
 								<div id="respond" class="comment-respond ls d-flex">
 									<form action="http://webdesign-finder.com/" method="post" id="commentform" class="comment-form" novalidate="">
@@ -276,11 +278,134 @@ session_start();
 													</span>
 													<!-- .comment-metadata -->
 												</div>
+											</footer>
+											<!-- .comment-meta -->
+											<div class="comment-content">
+												<p>
+													Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+												</p>
+											</div>
+											<div class="reply">
+												<a rel="nofollow" class=" color-main fw-500" href="#comments" aria-label="Reply to John Doe">Reply</a>
+											</div>
+										</article>
+										<!-- .comment-body -->
+										<ol class="children">
+											<li class="comment">
+												<article class="comment-body">
+													<footer class="comment-meta">
+														<div class="comment-author vcard">
+															<img alt="" src="images/team/comments-02.png">
+														</div>
+														<!-- .comment-author -->
+														<div class="comment-name d-block d-md-flex justify-content-between">
+															<b class="fn">
+																<a href="#" rel="nofollow" class="url fw-500">David F. Gibbs</a>
+															</b>
+															<span class="comment-metadata d-block links-grey">
+																<a href="#">
+																	<i class="fs-14 color-main ico-clock-alt"></i>
+																	2 min ago
+																</a>
+															</span>
+															<!-- .comment-metadata -->
+														</div>
+													</footer>
+													<!-- .comment-meta -->
+													<div class="comment-content">
+														<p>
+															Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+														</p>
+													</div>
+													<div class="reply">
+														<a rel="nofollow" class=" color-main fw-500" href="#comments" aria-label="Reply to John Doe">Reply</a>
+													</div>
+												</article>
+												<!-- .comment-body -->
+											</li>
+											<!-- #comment-## -->
+											<li class="comment">
+												<article class="comment-body">
+													<footer class="comment-meta">
+														<div class="comment-author vcard">
+															<img alt="" src="images/team/comments-01.jpg">
+														</div>
+														<!-- .comment-author -->
+														<div class="comment-name d-block d-md-flex justify-content-between">
+															<b class="fn">
+																<a href="#" rel="nofollow" class="url fw-500">Antonie D. Malone</a>
+															</b>
+															<span class="comment-metadata d-block links-grey">
+																<a href="#">
+																	<i class="fs-14 color-main ico-clock-alt"></i>
+																	2 min ago
+																</a>
+															</span>
+															<!-- .comment-metadata -->
+														</div>
+													</footer>
+													<!-- .comment-meta -->
+													<div class="comment-content">
+														<p>
+															Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+														</p>
+													</div>
+													<div class="reply">
+														<a rel="nofollow" class=" color-main fw-500" href="#comments" aria-label="Reply to John Doe">Reply</a>
+													</div>
+												</article>
+												<!-- .comment-body -->
+											</li>
+											<!-- #comment-## -->
+										</ol>
+										<!-- .children -->
+									</li>
+									<!-- #comment-## -->
 
-		
+									<li class="comment">
+										<article class="comment-body">
+											<footer class="comment-meta">
+												<div class="comment-author vcard">
+													<img alt="" src="images/team/comments-03.png">
+												</div>
+												<!-- .comment-author -->
+												<div class="comment-name d-block d-md-flex justify-content-between">
+													<b class="fn">
+														<a href="#" rel="nofollow" class="url fw-500">Delie J. Warren</a>
+													</b>
+													<span class="comment-metadata d-block links-grey">
+														<a href="#">
+															<i class="fs-14 color-main ico-clock-alt"></i>
+															2 min ago
+														</a>
+													</span>
+													<!-- .comment-metadata -->
+												</div>
+											</footer>
+											<!-- .comment-meta -->
+											<div class="comment-content">
+												<p>
+													Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+												</p>
+											</div>
+											<div class="reply">
+												<a rel="nofollow" class=" color-main fw-500" href="#comments" aria-label="Reply to John Doe">Reply</a>
+											</div>
+										</article>
+										<!-- .comment-body -->
+									</li>
+									<!-- #comment-## -->
+								</ol>
+								<!-- .comment-list -->
 
-		</div><!-- eof #box_wrapper -->
-	</div><!-- eof #canvas -->
+							</div>
+
+
+						</main>
+					</div>
+				</div>
+			</section>
+
 
 
 	<script src="js/compressed.js"></script>

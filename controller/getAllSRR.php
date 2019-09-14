@@ -5,7 +5,6 @@
     $srr=new ServiceRequestRespon();
     $ref_id = $_SESSION['motorist']; 
     $row=$srr->getAllServiceRequestRespon($ref_id);
-
      $rows=$srr->getAllServiceRequestRespon1($ref_id);
-	
+	$data=$srr->getMotoristSRR($ref_id);
 ?>

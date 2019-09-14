@@ -191,18 +191,44 @@ session_start();
 					</div>
 				</section> -->
 
+  <?php include('../controller/getOnGoing.php');
+	foreach($row as $rows){
+  ?>
 
+				<article class="post side-item text-center text-md-left content-padding bordered event-post">
+							
 
-			<section class="page_slider">
-				<div class="flexslider" data-nav="false" data-dots="true">
-					<ul class="slides">
-						<li class="ds bs cover-image flex-slide">
-							<!-- <span class="flexslider-overlay"></span> -->
-							<img src="images/slide01.jpg" alt="">
-							<div class="container">
-             </div>
-			</section>
+									<div class="col-xl-8 col-lg-7 col-md-6">
+										<div class="divider-11 d-none d-xl-block"></div>
+										<div class="item-content">
+											<h6>
+											<?php $plateno=$rows['vehicle_plateno'];?>
+												<a href="../view/mechanicmoto3.php?id=<?php echo $plateno;?>";>
+													Car Plate No:  <?php echo $plateno;?>
+												</a>
+											</h6>
 
+											<div class="mb-10 item-meta color-darkgrey">
+												<span>
+													<i class="fa fa-calendar color-main"></i> <span><?php echo date('F j, Y',strtotime($rows['service_date']));?></span>
+												</span>
+												<span>
+													<i class="fa fa-clock-o color-main"></i> <span><?php echo $rows['address'];?></span>
+												</span>
+											</div>
+											<p>
+												Car Problems: <?php echo $rows['service'];?>
+											
+												<br/>
+												Description: <?php echo $rows['problems'];?>
+											</p>
+
+										</div>
+									</div>
+								</div>
+							</article>
+
+<?php }?>
 			<section class="page_copyright ds ms s-pt-5 s-pb-25 s-py-lg-20">
 				<div class="container">
 					<div class="divider-2 d-none d-lg-block"></div>

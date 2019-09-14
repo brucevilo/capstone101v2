@@ -84,36 +84,96 @@ session_start();
 				<div class="col-6">
 					<div class="modal-content">
 						<div class="modal-header justify-content-center">
-							<h4 class="modal-title">Sign in</h4>
+							<h4 class="modal-title">Add Vehicle</h4>
 						</div>
 						<div class="modal-body">
-							<form action="http://webdesign-finder.com/">
+						<form action="../controller/addVehicle.php" method="POST" enctype="multipart/form-data">
+				
 								<div class="form-group has-placeholder">
-									<label for="name-sigin">Your Name:</label>
-									<input type="text" class="form-control" id="name-sigin" placeholder="Enter your name" name="First name">
+								<input type="file"  class="form-control" id = "file" name="file" aria-label="Small" aria-describedby="inputGroup-sizing-sm" require>
+							</div>
+								<div class="form-group has-placeholder">
+								<input type="text" class="form-control" id="vehicle_mileage" placeholder="Mile Age in KM" name="vehicle_mileage" require>
 								</div>
 								<div class="form-group has-placeholder">
-									<label for="sigpassword">Password:</label>
-									<input type="password" class="form-control" id="sigpassword" placeholder="password" name="sigpassword">
+									<input type="text" class="form-control" id="vehicle_brand" placeholder="Car Brand" name="vehicle_brand" require>
 								</div>
-								<div class="modal-password">
-									<a href="#" class="modal-password-btn">Forgot password?</a>
+								<div class="form-group has-placeholder">
+									<input type="text" class="form-control" id="vehicle_model" placeholder="Car Model" name="vehicle_model" require>
 								</div>
-								<div class="modal-footer d-flex justify-content-center">
-									<button type="submit" class="btn btn-small btn-maincolor log-btn">Log in</button>
+								<div class="form-group has-placeholder">
+									<input type="text" class="form-control" id="vehicle_drivertype" placeholder="Driver Type" name="vehicle_drivertype" require>
 								</div>
-							</form>
+	
+							
+						
 						</div>
 					</div>
 				</div>
 				<div class="col-6 ds s-overlay">
-					<img src="images/modal-login-form.jpg" alt="">
+					<!-- <img src="images/modal-login-form.jpg" alt=""> -->
+					<div class="modal-content">
+					<div class="modal-header justify-content-center">
+						<br/>
+						<br/>	
+						</div>
+						<div class="modal-body">
+							
+								<div class="form-group has-placeholder">
+									<input type="text" class="form-control" id="vehicle_color" placeholder="Car Color" name="vehicle_color" require>
+								</div>
+								<div class="form-group has-placeholder">
+									<input type="text" class="form-control" id="vehicle_regno" placeholder="Registration Number" name="vehicle_regno" require>
+								</div>
+								<div class="form-group has-placeholder">
+									<input type="text" class="form-control" id="vehicle_plateno" placeholder="Car Plate Number" name="vehicle_plateno" require>
+								</div>
+								<div class="form-group has-placeholder">
+									<input type="hidden" placeholder="fdsf"/>
+								</div>
+							<br/>
+							<br/>
+								<div class="form-group has-placeholder">
+									<button type="submit" name ="btnVehicle" id ="btnVehicle" class="btn btn-small btn-maincolor log-btn">Add Vehicle</button>
+								</div>
+							</form>
+						</div>
+							</div>
+							</div>
+					<!-- end -->
+				
 				</div>
 			</div>
 		</div>
 	</div>
+<!-- 
+<script>
+$(document).ready(function{
+	$('#btnVehicle').click(function(){
+		var image_name == $('image').val();
+		if(image name =='')
+		{
+			alert("Please Select Image");
+			return false;
+		}
+		else{
+			var extention =$('#image').val().split(',').pop().toLowerCase();
+			if(jquery.inArray (extension, ['gif','png','jpg','jpeg'])) == -1)
+			{
+				alert("Invalid Image File";
+				$('#image').val('');
+					return false;
 
+				)
 
+			}
+		}
+
+	})
+
+})
+</script>
+ -->
 	<!-- wrappers for visual page editor and boxed version of template -->
 	<div id="canvas">
 		<div id="box_wrapper">
@@ -181,9 +241,7 @@ session_start();
 												</p>
 											</div>
 										</div>
-										<div class="d-none d-xl-block">
-											<a href="#" class="btn btn-small btn-outline-maincolor btn-appointment">Schedule Maintenance</a>
-										</div>
+									
 									</div>
 								</div>
 								<!-- header toggler -->
@@ -223,7 +281,8 @@ session_start();
 											<li>
 												<a href="motoristProfile.php">Profile</a>
 											</li>
-											<li>
+											
+												
 											<li>
 												<a href="logout.php">Logout</a>
 											<li>
@@ -243,460 +302,64 @@ session_start();
 					<span class="toggle_menu"><span></span></span>
 
 				</header>
-
+<!-- 
 				<section class="page_title ds s-pt-105 s-pb-50 s-pt-lg-115 s-pb-lg-60">
 					<div class="divider-3 d-none d-lg-block"></div>
 					<div class="container">
 						<div class="row">
 
 							<div class="col-md-12">
-								<h1 class="bold text-center text-lg-left">Services </h1>
+								
 	
 							</div>
 
 						</div>
 					</div>
-				</section>
+				</section> -->
 
+ <?php
+ $ref_id = $_SESSION['motorist'];
+  include('../controller/getMotoristById.php');?> 
 
-			</div>
-
-
-			<section class="ls s-pt-50 s-pb-60 s-pt-lg-90 s-pb-lg-100 s-pt-xl-140 s-pb-xl-150 gallery-title">
+				<section class="ls s-py-60 s-py-lg-100 s-py-xl-150 c-gutter-60">
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-12">
-							<div class="row justify-content-center">
-								<div class="col-md-10 col-xl-7">
-									<div class="filters gallery-filters text-lg-right">
-										<a href="#" data-filter="*" class="active selected">All</a>
-										<a href="#" data-filter=".repair">Repair</a>
-										<a href="#" data-filter=".diagnostic">Diagnostic</a>
-										<a href="#" data-filter=".towing">Towing</a>
-										<a href="#" data-filter=".wash">Wash</a>
-										<a href="#" data-filter=".testing">Testing</a>
-									</div>
+						<main class="offset-lg-1 col-lg-10">
+							<article class="vertical-item post type-event status-publish format-standard has-post-thumbnail events-post single-post">
+								<div class="item-media post-thumbnail rounded-top">
+								<h5><?php echo strtoupper($row['lastname']).", ".strtoupper($row['firstname']); ?></h5>
 								</div>
-							</div>
-							<div class="row isotope-wrapper masonry-layout c-gutter-10 c-mb-30" data-filters=".gallery-filters">
+							
+									<!-- .entry-meta -->
+									<hr>
 
-								<div class="col-xl-4 col-md-6 repair wash">
-
-									<div class="vertical-item text-center ">
-										<div class="item-media">
-											<img src="images/gallery/01.jpg" alt="">
-											<div class="media-links">
-												<div class="links-wrap">
-													<a class="link-zoom photoswipe-link" title="" href="images/gallery/01.jpg"></a>
-												</div>
-											</div>
-										</div>
-										<div class="item-content">
-											<h6 class="mb-15">
-												<a href="gallery-single.html">Lorem ipsum dolor sit</a>
-											</h6>
-											<div class="tagcloud">
-												<a href="#"><span>Repair</span></a>
-												<a href="#"><span>Wash</span></a>
-											</div>
-
-										</div>
-									</div>
-
-								</div>
-
-								<div class="col-xl-4 col-md-6 testing towing">
-									<div class="vertical-item text-center ">
-										<div class="item-media">
-											<img src="images/gallery/02.jpg" alt="">
-											<div class="media-links">
-												<div class="links-wrap">
-													<a class="link-zoom photoswipe-link" title="" href="images/gallery/02.jpg"></a>
-												</div>
-											</div>
-										</div>
-										<div class="item-content">
-											<h6 class="mb-15">
-												<a href="gallery-single.html">Amet consetetur sadipscing</a>
-											</h6>
-											<div class="tagcloud">
-												<a href="#"><span>Towing</span></a>
-											</div>
-
-										</div>
-									</div>
-								</div>
-
-								<div class="col-xl-4 col-md-6 diagnostic wash testing">
-									<div class="vertical-item text-center ">
-										<div class="item-media">
-											<img src="images/gallery/03.jpg" alt="">
-											<div class="media-links">
-												<div class="links-wrap">
-													<a class="link-zoom photoswipe-link" title="" href="images/gallery/03.jpg"></a>
-												</div>
-											</div>
-										</div>
-										<div class="item-content">
-											<h6 class="mb-15">
-												<a href="gallery-single.html">Elitr sed diam nonumy</a>
-											</h6>
-											<div class="tagcloud">
-												<a href="#"><span>Diagnostic</span></a>
-												<a href="#"><span>Testing</span></a>
-											</div>
-
-										</div>
-									</div>
-								</div>
-
-								<div class="col-xl-4 col-md-6 repair diagnostic">
-									<div class="vertical-item text-center ">
-										<div class="item-media">
-											<img src="images/gallery/04.jpg" alt="">
-											<div class="media-links">
-												<div class="links-wrap">
-													<a class="link-zoom photoswipe-link" title="" href="images/gallery/04.jpg"></a>
-												</div>
-											</div>
-										</div>
-										<div class="item-content">
-											<h6 class="mb-15">
-												<a href="gallery-single.html">Tempor invidunt ut</a>
-											</h6>
-											<div class="tagcloud">
-												<a href="#"><span>Testing</span></a>
-											</div>
-
-										</div>
-									</div>
-								</div>
-
-								<div class="col-xl-4 col-md-6 testing towing">
-									<div class="vertical-item text-center ">
-										<div class="item-media">
-											<img src="images/gallery/05.jpg" alt="">
-											<div class="media-links">
-												<div class="links-wrap">
-													<a class="link-zoom photoswipe-link" title="" href="images/gallery/05.jpg"></a>
-												</div>
-											</div>
-										</div>
-										<div class="item-content">
-											<h6 class="mb-15">
-												<a href="gallery-single.html">Labore et dolore magna</a>
-											</h6>
-											<div class="tagcloud">
-												<a href="#"><span>Towing</span></a>
-												<a href="#"><span>Testing</span></a>
-
-											</div>
-
-										</div>
-									</div>
-								</div>
-
-								<div class="col-xl-4 col-md-6 diagnostic wash towing">
-									<div class="vertical-item text-center ">
-										<div class="item-media">
-											<img src="images/gallery/06.jpg" alt="">
-											<div class="media-links">
-												<div class="links-wrap">
-													<a class="link-zoom photoswipe-link" title="" href="images/gallery/06.jpg"></a>
-												</div>
-											</div>
-										</div>
-										<div class="item-content">
-											<h6 class="mb-15">
-												<a href="gallery-single.html">Aliquyam erat sed diam</a>
-											</h6>
-											<div class="tagcloud">
-												<a href="#"><span>Repair</span></a>
-											</div>
-
-										</div>
-									</div>
-								</div>
-
-								<div class="col-xl-4 col-md-6 repair wash testing">
-									<div class="vertical-item text-center ">
-										<div class="item-media">
-											<img src="images/gallery/07.jpg" alt="">
-											<div class="media-links">
-												<div class="links-wrap">
-													<a class="link-zoom photoswipe-link" title="" href="images/gallery/07.jpg"></a>
-												</div>
-											</div>
-										</div>
-										<div class="item-content">
-											<h6 class="mb-15">
-												<a href="gallery-single.html">Voluptua vero</a>
-											</h6>
-											<div class="tagcloud">
-												<a href="#"><span>Testing</span></a>
-											</div>
-
-										</div>
-									</div>
-								</div>
-
-								<div class="col-xl-4 col-md-6 repair diagnostic towing">
-									<div class="vertical-item text-center ">
-										<div class="item-media">
-											<img src="images/gallery/08.jpg" alt="">
-											<div class="media-links">
-												<div class="links-wrap">
-													<a class="link-zoom photoswipe-link" title="" href="images/gallery/08.jpg"></a>
-												</div>
-											</div>
-										</div>
-										<div class="item-content">
-											<h6 class="mb-15">
-												<a href="gallery-single.html">Eos et accusam justo duo</a>
-											</h6>
-											<div class="tagcloud">
-												<a href="#"><span>Repair</span></a>
-											</div>
-
-										</div>
-									</div>
-								</div>
-
-								<div class="col-xl-4 col-md-6 repair wash">
-
-									<div class="vertical-item text-center ">
-										<div class="item-media">
-											<img src="images/gallery/09.jpg" alt="">
-											<div class="media-links">
-												<div class="links-wrap">
-													<a class="link-zoom photoswipe-link" title="" href="images/gallery/09.jpg"></a>
-												</div>
-											</div>
-										</div>
-										<div class="item-content">
-											<h6 class="mb-15">
-												<a href="gallery-single.html">Consectetur adipisicing elit</a>
-											</h6>
-											<div class="tagcloud">
-												<a href="#"><span>Diagnostic</span></a>
-											</div>
-
-										</div>
-									</div>
-
-								</div>
-
-								<div class="col-xl-4 col-md-6 testing towing">
-									<div class="vertical-item text-center ">
-										<div class="item-media">
-											<img src="images/gallery/10.jpg" alt="">
-											<div class="media-links">
-												<div class="links-wrap">
-													<a class="link-zoom photoswipe-link" title="" href="images/gallery/10.jpg"></a>
-												</div>
-											</div>
-										</div>
-										<div class="item-content">
-											<h6 class="mb-15">
-												<a href="gallery-single.html">Dolores et ea rebum</a>
-											</h6>
-											<div class="tagcloud">
-												<a href="#"><span>Repair</span></a>
-											</div>
-
-										</div>
-									</div>
-								</div>
-
-								<div class="col-xl-4 col-md-6 diagnostic wash testing">
-									<div class="vertical-item text-center ">
-										<div class="item-media">
-											<img src="images/gallery/01.jpg" alt="">
-											<div class="media-links">
-												<div class="links-wrap">
-													<a class="link-zoom photoswipe-link" title="" href="images/gallery/11.jpg"></a>
-												</div>
-											</div>
-										</div>
-										<div class="item-content">
-											<h6 class="mb-15">
-												<a href="gallery-single.html">Stet clita kasd gubergren</a>
-											</h6>
-											<div class="tagcloud">
-												<a href="#"><span>Diagnostic</span></a>
-											</div>
-
-										</div>
-									</div>
-								</div>
-
-								<div class="col-xl-4 col-md-6 repair diagnostic">
-									<div class="vertical-item text-center ">
-										<div class="item-media">
-											<img src="images/gallery/12.jpg" alt="">
-											<div class="media-links">
-												<div class="links-wrap">
-													<a class="link-zoom photoswipe-link" title="" href="images/gallery/12.jpg"></a>
-												</div>
-											</div>
-										</div>
-										<div class="item-content">
-											<h6 class="mb-15">
-												<a href="gallery-single.html">Clita kasd gubergren</a>
-											</h6>
-											<div class="tagcloud">
-												<a href="#"><span>Testing</span></a>
-											</div>
-
-										</div>
-									</div>
-								</div>
-
-							</div>
-							<!-- .isotope-wrapper-->
-
-							<div class="row">
-								<div class="col-sm-12 text-center">
-									<a href="#" class="btn btn-outline-maincolor">Load More</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<footer class="page_footer text-center text-md-left ds ms s-pt-65 s-pt-lg-125 s-pb-lg-35 c-gutter-40 main-footer">
-				<div class="container">
-					<div class="row">
-						<div class="divider-20 d-none d-lg-block"></div>
-
-						<div class="col-md-6 col-lg-3 animate" data-animation="fadeInUp">
-
-							<div class="widget widget_icons_list">
-								<a href="mechanicDashboard.php" class="logo">
-									<img src="images/logo.png" alt="">
-									<span class="logo-text fw-500">Mechannic<span class="fw-200">Hero</span></span>
-								</a>
-								<div class="media side-icon-box">
-									<div class="icon-styled color-main">
-										<i class="fa fa-map-marker"></i>
-									</div>
-									<p class="media-body color-grey">2688 Simpson Avenue Harrisburg, PA 17109 </p>
-								</div>
-								<div class="media side-icon-box">
-									<div class="icon-styled color-main">
-										<i class="fa fa-phone"></i>
-									</div>
-
-									<p class="media-body color-grey">+1 234 56 78</p>
-								</div>
-								<div class="media side-icon-box">
-									<div class="icon-styled color-main">
-										<i class="fa fa-envelope"></i>
-									</div>
-									<p class="media-body color-grey">
-										<a href="mailto:">info@MechnicHero.com</a>
+									<div class="entry-content">
+										<p class="excerpt">
+										<span><h6>Email Address:  &nbsp;&nbsp; <?php echo strtoupper($row['email']);?></span>
+										<br>
+											Contact Number : &nbsp;&nbsp; <?php echo strtoupper($row['contact_number']);?>
+										<br>
+										Home Address  :   </span>&nbsp;&nbsp;<?php echo $row['address']?> 
+									<br>
+									
+									</h6>
 									</p>
+									<p class="form-submit">
+											<a type="button" href="motoristUpdateAcc.php" class="btn btn-small btn-maincolor">Edit Account Details</a>
+											<a type="button" href="motoristChangePass.php" class="btn btn-small btn-maincolor">Change Password</a>
+										</p>
+
+									</div>
+									<!-- .entry-content -->
+
 								</div>
-							</div>
-						</div>
-
-						<div class="col-md-6 col-lg-3 animate order-md-3 order-lg-2" data-animation="fadeInUp">
-							<div class="widget widget_page_links">
-								<h3>Useful Pages</h3>
-								<ul>
-									<li>
-										<a href="#"><i class="ico-check-circle"></i>Contact Us</a>
-									</li>
-									<li>
-										<a href="#"><i class="ico-check-circle"></i>Blog post</a>
-									</li>
-									<li>
-										<a href="#"><i class="ico-check-circle"></i>About Us</a>
-									</li>
-									<li>
-										<a href="#"><i class="ico-check-circle"></i>Services</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="col-md-6 col-lg-3 animate order-md-4 order-lg-3" data-animation="fadeInUp">
-							<div class="widget widget_services_links">
-								<h3>Services</h3>
-								<ul>
-									<li>
-										<a href="#"><i class="ico-check-circle"></i>Exterior Hand Wash</a>
-									</li>
-									<li>
-										<a href="#"><i class="ico-check-circle"></i>Tower Hand Dry</a>
-									</li>
-									<li>
-										<a href="#"><i class="ico-check-circle"></i>Tire Dressing</a>
-									</li>
-									<li>
-										<a href="#"><i class="ico-check-circle"></i>Wheel Shine</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="col-md-6 col-lg-3 c-gutter-10 animate order-lg-4" data-animation="fadeInUp">
-							<div class="widget widget_working_hours">
-								<h3>Our Hours</h3>
-								<ul>
-									<li class="row">
-										<div class="color-grey col-3">
-											Mn-Fr
-										</div>
-										<div class="col-md-9 col-5">
-											<span class="color-darkgrey">9.<sup>00</sup>am - 8.<sup>00</sup>pm</span>
-										</div>
-									</li>
-									<li class="row">
-										<div class="color-grey col-3">
-											Sat
-										</div>
-										<div class="col-md-9 col-5">
-											<span class="color-darkgrey">9.<sup>00</sup>am - 4.<sup>00</sup>pm</span>
-										</div>
-									</li>
-									<li class="row">
-										<div class="color-grey col-3">
-											Sun
-										</div>
-										<div class="col-md-9 col-5">
-											<span class="color-darkgrey">output</span>
-										</div>
-									</li>
-								</ul>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</footer>
+								<!-- .item-content -->
+							</article>
 
 
-			<section class="page_copyright ds ms s-pt-5 s-pb-25 s-py-lg-20">
-				<div class="container">
-					<div class="divider-2 d-none d-lg-block"></div>
-					<div class="row align-items-center">
-						<div class="divider-20 d-none d-lg-block"></div>
 
-						<div class="col-md-12 text-center">
-							<p class="social-icons with-border">
-								<span><a href="https://www.facebook.com/" class="fa fa-facebook border-icon rounded-icon" title="facebook"></a></span>
-								<span><a href="https://telegram.org/" class="fa fa-paper-plane border-icon rounded-icon" title="telegram"></a></span>
-								<span><a href="https://www.instagram.com/" class="fa fa-instagram border-icon rounded-icon" title="instagram"></a></span>
-							</p>
-							<p><a target="_blank" href="https://templateshub.net">Templates Hub</a></p>
-						</div>
-						<div class="divider-20 d-none d-lg-block"></div>
-					</div>
-				</div>
-			</section>
-
+							
+		
 
 		</div><!-- eof #box_wrapper -->
 	</div><!-- eof #canvas -->

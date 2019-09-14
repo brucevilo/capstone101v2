@@ -1,9 +1,8 @@
 <?php
 session_start();
-  if(!isset($_SESSION['motorist'])){
-    header("location:index.php");
-  }
-
+//   if(!isset($_SESSION['mechanic'])){
+//     header("location:index.php");
+//   }
  ?> 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -146,25 +145,22 @@ session_start();
 									<nav class="top-nav">
 										<ul class="nav sf-menu">
                                         <li class="active">
-												<a href="motoristDashboard.php">Service</a>
+												<a href="mechanicDashboard.php">Home</a>
 											
 											</li>
 
 											<li>
-												<a href="motoristVehicle.php">Vehicle</a>
+												<a href="mechanicOnGoing.php">On-Going-Work</a>
 											</li>
 										
 											<li>
-												<a href="motoristProfile.php">Profile</a>
+												<a href="mechanicProfile.php">Profile</a>
 											</li>
-
-								
-
-
+											<li>
 											<li>
 												<a href="logout.php">Logout</a>
 											<li>
-										
+							
 									</nav>
 									<!-- eof main nav -->
 
@@ -178,101 +174,107 @@ session_start();
 					<!-- header toggler -->
 
 					<span class="toggle_menu"><span></span></span>
-			
+
 				</header>
+<!-- 
+				<section class="page_title ds s-pt-105 s-pb-50 s-pt-lg-115 s-pb-lg-60">
+					<div class="divider-3 d-none d-lg-block"></div>
+					<div class="container">
+						<div class="row">
 
+							<div class="col-md-12">
+								
+	
+							</div>
 
+						</div>
+					</div>
+				</section> -->
 
-		
-                <section class="ls s-pt-55 s-pb-35 s-pt-lg-145 s-pb-lg-140 s-parallax s-overlay comingsoon">
-				<div class="divider-40 d-none d-lg-block"></div>
+ <?php
+ $ref_id =$_GET['id'];
+  include('../controller/getMechanicByID.php');?> 
+
+				<section class="ls s-py-60 s-py-lg-100 s-py-xl-150 c-gutter-60">
 				<div class="container">
 					<div class="row">
-						<div class="col-sm-12 text-center">
-							<h2 class="special-heading">
-								Mechanic's<span class="text-gradient">Qoute.</span>
-							</h2>
-							<style>
-								.center {
-									margin: auto;
-									width: 50%;
-									padding: 10px;
-									border: 2px solid #ccc;
-									background-color: #ffffff;
-								}
+						<main class="offset-lg-1 col-lg-10">
+							<article class="vertical-item post type-event status-publish format-standard has-post-thumbnail events-post single-post">
+								<div class="item-media post-thumbnail rounded-top">
+								<h5><?php echo strtoupper($row['lastname']).", ".strtoupper($row['firstname']); ?></h5>
+								</div>
+							
+									<!-- .entry-meta -->
+									<hr>
 
-								input[type=text] {
-									width: 50%;
-									margin: center;
-									padding: 12px 20px;
-									margin: 8px 0;
-									box-sizing: border-box;
-									color: #ff4e3c;
-								}
-							</style>
-							<div class="center">
-                                <form action="../controller/addServiceRequestAccepted.php" method="post">
-                                <?php 
-                                $ref_id = $_GET['id'];
-                             
-                                include('../controller/getIdSRR.php'); ?>
-								
-                                    <input type="hidden" value ="<?php echo $row['serve_post_respid'];?>"name="serve_post_respid" >
-									<div class="form-group has-placeholder">
-								<b>Sender Name :</b> <a href = "mechanicProfile1.php?id=<?php echo $row['mechanicid']?>"><?php echo strtoupper($row['lastname']).", ".strtoupper ($row['firstname']) ?></a>
-									<br/>
-									<b>Car Plate No :</b> <?php echo strtoupper($row['vehicle_plateno'])?>
-									<br/>
-									<b>Car Problems :</b> <?php echo strtoupper($row['service'])?>
-									<br/>
-									<b>Problem Description:</b> <?php echo strtoupper($row['problems'])?>
-									<br/>
-									<b>Mechanic's Estimated Cost:</b> <?php echo strtoupper($row['bid'])?>
-									<br/>
-									<b>Mechanic's Qoute:</b> <?php echo strtoupper($row['biddesc'])?>
-									<br/>
-									<input type="text" placeholder="Contact Number" name="contactno" required>
-									<br/>
-									<input type="text" placeholder ="Address" name="addresss" required>
-									</div>	
-								
-									<input type="checkbox" placeholder ="" name="address" required>I agree with your term's and Agreements.
-									</div>	
-									
-                                    <button type="submit" name="btnSRR" class="btn btn-small btn-maincolor log-btn">Accept</button>
-                                    <a href="motoristDashboard.php"  class="btn btn-small btn-maincolor log-btn">Cancel</a>
-							</div>
-							<!-- <h6 class="mt-0">Stay Tuned!</h6>		
-							<div id="comingsoon-countdown"></div> -->
-							<!--
-					use "data-date" attribute with your date value to set date that you need to count to
-					<div id="comingsoon-countdown" data-date="March 29, 2018 10:00:00"></div>
-				-->
-			</form>
-						</div>
-					</div>
-				</div>
-			</section>
+									<div class="entry-content">
+										<p class="excerpt">
+										<span><h6>Email Address:  &nbsp;&nbsp; <?php echo strtoupper($row['email']);?></span>
+										<br>
+											Contact Number : &nbsp;&nbsp; <?php echo strtoupper($row['contact_number']);?>
+										<br>
+										Home Address  :   </span>&nbsp;&nbsp;<?php echo $row['address']?> 
+									<br>
+									Specialty   :  </span >&nbsp;&nbsp;<?php echo $row['mechtype']?>
+									</h6>
+									</p>
 
-			<section class="page_copyright ds ms s-pt-5 s-pb-25 s-py-lg-20">
-				<div class="container">
-					<div class="divider-2 d-none d-lg-block"></div>
-					<div class="row align-items-center">
-						<div class="divider-20 d-none d-lg-block"></div>
 
-						<div class="col-md-12 text-center">
-							<p class="social-icons with-border">
-								<span><a href="https://www.facebook.com/" class="fa fa-facebook border-icon rounded-icon" title="facebook"></a></span>
-								<span><a href="https://telegram.org/" class="fa fa-paper-plane border-icon rounded-icon" title="telegram"></a></span>
-								<span><a href="https://www.instagram.com/" class="fa fa-instagram border-icon rounded-icon" title="instagram"></a></span>
-							</p>
-							<p><a target="_blank" href="https://templateshub.net">Mechanic Hero</a></p>
-						</div>
-						<div class="divider-20 d-none d-lg-block"></div>
-					</div>
-				</div>
-			</section>
+									</div>
+									<!-- .entry-content -->
 
+								</div>
+								<!-- .item-content -->
+							</article>
+
+
+
+							<div id="comments" class="post-comments comments-area rounded">
+								<h4 id="reply-title" class="fw-700 comment-reply-title">Mechanic<span class="text-gradient">History</span></h4>
+
+								<div id="respond" class="comment-respond ls d-flex">
+									<form action="http://webdesign-finder.com/" method="post" id="commentform" class="comment-form" novalidate="">
+										<div class="comment-form-author form-group has-placeholder">
+											<label for="author">Name</label>
+											<input class="form-control" id="author" name="author" type="text" value="" size="30" maxlength="245" aria-required="true" required="required" placeholder="Enter your name">
+										</div>
+										<p class="comment-form-email form-group has-placeholder">
+											<label for="email">Email </label>
+											<input class="form-control" id="email" name="email" type="email" value="" size="30" maxlength="100" aria-required="true" required="required" placeholder="Enter your email">
+										</p>
+
+										<p class="comment-form-comment form-group has-placeholder">
+											<label for="comment">Comment</label>
+											<textarea class="form-control" id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required" placeholder="Enter your message"></textarea>
+										</p>
+										<p class="form-submit">
+											<button type="button" class="btn btn-small btn-maincolor">Leave Comment</button>
+										</p>
+									</form>
+								</div>
+								<!-- #respond -->
+								<ol class="comment-list">
+									<li class="comment">
+										<article class="comment-body">
+											<footer class="comment-meta">
+												<div class="comment-author vcard">
+													<img alt="" src="images/team/comments-04.jpg">
+												</div>
+												<!-- .comment-author -->
+												<div class="comment-name d-block d-md-flex justify-content-between">
+													<b class="fn">
+														<a href="#" rel="nofollow" class="url fw-500">Jeffrey P. McAllister</a>
+													</b>
+													<span class="comment-metadata d-block links-grey">
+														<a href="#">
+															<i class="fs-14 color-main ico-clock-alt"></i>
+															2 min ago
+														</a>
+													</span>
+													<!-- .comment-metadata -->
+												</div>
+
+		
 
 		</div><!-- eof #box_wrapper -->
 	</div><!-- eof #canvas -->

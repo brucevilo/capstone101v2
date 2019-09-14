@@ -204,18 +204,19 @@ session_start();
 												
 												<div class="widget woocommerce widget_shopping_cart">
 														<h4>Car<span class="text-gradient">Notification</span></h4>
-											<?php 
-											 foreach ($row as $rows){ 
-												  if($rows['status']=='unread'){?>	
+										
 												 		
-														<div class="widget_shopping_cart_content">												
+														<div class="widget_shopping_cart_content">		
+														<?php 
+											 foreach ($row as $rows){ 
+												  if($rows['status']=='unread'){?>														
 														<?php echo "<a href='motoristResponRequest.php?id=".$rows['serve_post_respid']."'>";?>
 																	<small><i><?php echo date('F j, Y, g:i a',strtotime($rows['date']));?></i></small><br>
 																		<span class="product-title fw-500">Mr/Ms.<?php echo $rows['lastname'];?> response to your service request.</span>
 												  </b>
 																	</a>
 															
-																		<a href="#" class="remove" aria-label="Remove this item" data-product_id="73" data-product_sku=""><i class="fs-14 ico-trash color-main"></i></a>
+																		<!-- <a href="#" class="remove" aria-label="Remove this item" data-product_id="73" data-product_sku=""><i class="fs-14 ico-trash color-main"></i></a> -->
 																		
 																	</div>
 
@@ -233,7 +234,7 @@ session_start();
 																	
 																	</a>
 															
-																		<a href="#" class="remove" aria-label="Remove this item" data-product_id="73" data-product_sku=""><i class="fs-14 ico-trash color-main"></i></a>
+																		<!-- <a href="#" class="remove" aria-label="Remove this item" data-product_id="73" data-product_sku=""><i class="fs-14 ico-trash color-main"></i></a> -->
 																		
 																	</div>
 
@@ -271,45 +272,44 @@ session_start();
 					<span class="toggle_menu"><span></span></span>
 
 				</header>
+			
+<?php foreach($data as $u ) {?>
+				<article class="post side-item text-center text-md-left content-padding bordered event-post">
+							
 
-				<section class="page_title ds s-pt-105 s-pb-50 s-pt-lg-115 s-pb-lg-60">
-					<div class="divider-3 d-none d-lg-block"></div>
-					<div class="container">
-						<div class="row">
+									<div class="col-xl-8 col-lg-7 col-md-6">
+										<div class="divider-11 d-none d-xl-block"></div>
+										<div class="item-content">
+											<h6>
+											<?php $plateno=$u['vehicle_plateno'];?>
+												<a href="../view/mechanicmoto3.php?id=<?php echo $plateno;?>";>
+													Car Plate No:  <?php echo $plateno;?>
+												</a>
+											</h6>
 
-							<div class="col-md-12">
-								<h1 class="bold text-center text-lg-left">Service Response</h1>
-								<div class="d-none d-xl-block">
-											<!-- <a href="../view/motoristAddServiceReq.php" class="btn btn-small btn-outline-maincolor btn-appointment" >Add Service</a> -->
+											<div class="mb-10 item-meta color-darkgrey">
+												<span>
+													<i class="fa fa-calendar color-main"></i> <span><?php echo date('F j, Y',strtotime($u['service_date']));?></span>
+												</span>
+											
+											</div>
+											<p>
+												Car Problems: <?php echo $u['service'];?>
+											
+												<br/>
+												Description: <?php echo $u['problems'];?>
+											</p>
+
 										</div>
-	
-							</div>
-
-						</div>
-					</div>
-				</section>
+									</div>
+								</div>
+							</article>
 
 
-			</div>
+<?php }?>
 
 
-			<section class="page_slider">
-				<div class="flexslider" data-nav="false" data-dots="true">
-					<ul class="slides">
-						<li class="ds bs cover-image flex-slide">
-							<!-- <span class="flexslider-overlay"></span> -->
-							<img src="images/slide01.jpg" alt="">
-							<div class="container">
-							</div> 
-				</div> 
-<!-- Modal edit -->
 
-<!-- Modal -->
-<!-- deleteModal -->
-
-
-				<!-- eof flexslider -->
-			</section>
 
 			<footer class="page_footer text-center text-md-left ds ms s-pt-65 s-pt-lg-125 s-pb-lg-35 c-gutter-40 main-footer">
 				<div class="container">

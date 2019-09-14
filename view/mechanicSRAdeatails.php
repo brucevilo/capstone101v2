@@ -1,9 +1,8 @@
 <?php
 session_start();
-  if(!isset($_SESSION['motorist'])){
+  if(!isset($_SESSION['mechanic'])){
     header("location:index.php");
   }
-
  ?> 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -146,25 +145,22 @@ session_start();
 									<nav class="top-nav">
 										<ul class="nav sf-menu">
                                         <li class="active">
-												<a href="motoristDashboard.php">Service</a>
+												<a href="mechanicDashboard.php">Home</a>
 											
 											</li>
 
 											<li>
-												<a href="motoristVehicle.php">Vehicle</a>
+												<a href="mechanicOnGoing.php">On-Going-Work</a>
 											</li>
 										
 											<li>
-												<a href="motoristProfile.php">Profile</a>
+												<a href="mechanicProfile.php">Profile</a>
 											</li>
-
-								
-
-
+											<li>
 											<li>
 												<a href="logout.php">Logout</a>
 											<li>
-										
+							
 									</nav>
 									<!-- eof main nav -->
 
@@ -178,10 +174,8 @@ session_start();
 					<!-- header toggler -->
 
 					<span class="toggle_menu"><span></span></span>
-			
-				</header>
 
-
+				</header>	
 
 		
                 <section class="ls s-pt-55 s-pb-35 s-pt-lg-145 s-pb-lg-140 s-parallax s-overlay comingsoon">
@@ -215,32 +209,17 @@ session_start();
                                 <?php 
                                 $ref_id = $_GET['id'];
                              
-                                include('../controller/getIdSRR.php'); ?>
+                                include('../controller/getBySRAId.php'); ?>
 								
-                                    <input type="hidden" value ="<?php echo $row['serve_post_respid'];?>"name="serve_post_respid" >
-									<div class="form-group has-placeholder">
-								<b>Sender Name :</b> <a href = "mechanicProfile1.php?id=<?php echo $row['mechanicid']?>"><?php echo strtoupper($row['lastname']).", ".strtoupper ($row['firstname']) ?></a>
+                             
+								<b>Sender Name :</b> <?php echo strtoupper($row['lastname']).", ".strtoupper ($row['firstname']) ?>
 									<br/>
-									<b>Car Plate No :</b> <?php echo strtoupper($row['vehicle_plateno'])?>
+									<b>Contact No.</b> <?php echo strtoupper($row['contactno'])?>
 									<br/>
-									<b>Car Problems :</b> <?php echo strtoupper($row['service'])?>
+									<b>Address :</b> <?php echo strtoupper($row['address'])?>
 									<br/>
-									<b>Problem Description:</b> <?php echo strtoupper($row['problems'])?>
-									<br/>
-									<b>Mechanic's Estimated Cost:</b> <?php echo strtoupper($row['bid'])?>
-									<br/>
-									<b>Mechanic's Qoute:</b> <?php echo strtoupper($row['biddesc'])?>
-									<br/>
-									<input type="text" placeholder="Contact Number" name="contactno" required>
-									<br/>
-									<input type="text" placeholder ="Address" name="addresss" required>
-									</div>	
-								
-									<input type="checkbox" placeholder ="" name="address" required>I agree with your term's and Agreements.
-									</div>	
-									
-                                    <button type="submit" name="btnSRR" class="btn btn-small btn-maincolor log-btn">Accept</button>
-                                    <a href="motoristDashboard.php"  class="btn btn-small btn-maincolor log-btn">Cancel</a>
+								Please Contact this motorist as soon as possible..
+						
 							</div>
 							<!-- <h6 class="mt-0">Stay Tuned!</h6>		
 							<div id="comingsoon-countdown"></div> -->
