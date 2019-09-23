@@ -59,73 +59,6 @@ session_start();
 
 			<div class="header_absolute s-parallax ds bs s-overlay">
 
-				<!--topline section visible only on small screens|-->
-				<section class="page_toplogo ds s-overlay s-pt-10 s-pb-5 s-py-lg-30">
-					<div class="container">
-						<div class="row align-items-center">
-							<div class="col-lg-12">
-								<div class="d-lg-flex justify-content-lg-end align-items-lg-center">
-									<div class="mr-auto">
-										<!--
-							if you want to display toplogo info on smaller screens
-							than use following CSS classes below:
-						 	d-sm-flex justify-content-sm-center
-						 -->
-										<div class="d-none d-lg-flex justify-content-center justify-content-lg-start">
-											<a href="mechanicDashboard.php" class="logo">
-												<img src="images/logo.png" alt="">
-												<span class="logo-text fw-500">Mechannic<span class="fw-200">Hero</span></span>
-											</a>
-										</div>
-									</div>
-									<!--
-						if you want to display toplogo info on smaller screens
-						than use following CSS classes below:
-						d-sm-flex justify-lg-content-end justify-content-sm-between align-items-center
-					-->
-									<div class="d-flex justify-lg-content-end align-items-center meta-icons">
-										<div class="media">
-											<div class="icon-styled color-main fs-20">
-												<i class="ico-email"></i>
-											</div>
-											<div class="media-body">
-												<h6>Mail Us</h6>
-												<p class="fw-400">
-													Info@MechanicHero.com
-												</p>
-											</div>
-										</div>
-										<div class="media d-none d-md-flex">
-											<div class="icon-styled color-main fs-20">
-												<i class="ico-placeholder"></i>
-											</div>
-											<div class="media-body">
-												<h6>Location</h6>
-												<p class="fw-400">
-													Waukesha, WI 53186
-												</p>
-											</div>
-										</div>
-										<div class="media">
-											<div class="icon-styled color-main fs-20">
-												<i class="ico-phone-call"></i>
-											</div>
-											<div class="media-body">
-												<h6>Phone</h6>
-												<p class="fw-400">
-													+1 23 456 78 90
-												</p>
-											</div>
-										</div>
-									
-									</div>
-								</div>
-								<!-- header toggler -->
-							</div>
-						</div>
-					</div>
-				</section>
-
 
 				<!--eof topline-->
 
@@ -155,14 +88,11 @@ session_start();
 											</li>
 										
 											<li>
-												<a href="motoristProfile.php">Profile</a>
+												<a href="motoristProfile.php"><i class="ico-user"></i></a>
 											</li>
-
-								
-
-
+											
 											<li>
-												<a href="logout.php">Logout</a>
+												<a href="logout.php"><i class="fa fa-sign-out"></i></a>
 											<li>
 										
 									</nav>
@@ -177,7 +107,7 @@ session_start();
 
 					<!-- header toggler -->
 
-					<span class="toggle_menu"><span></span></span>
+					<!-- <span class="toggle_menu"><span></span></span> -->
 			
 				</header>
 
@@ -229,7 +159,7 @@ session_start();
                                <br> 
                       	
 									
-                                    <button type="submit" name="UpAcc" class="btn btn-small btn-maincolor log-btn">Accept</button>
+                                    <button type="submit" name="UpAcc" class="btn btn-small btn-maincolor log-btn">Submit</button>
                                     <a href="motoristDashboard.php"  class="btn btn-small btn-maincolor log-btn">Cancel</a>
 							</div>
 							<!-- <h6 class="mt-0">Stay Tuned!</h6>		

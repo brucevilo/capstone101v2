@@ -8,6 +8,7 @@
 		private $dbconn;
 		
 		function __construct()	{	$this->dbconn=new DBHelper();}
-		function addPayment($data)	{	return $this->dbconn->AddPayment($this->table,$data);}	
+		function addPayment($ref_id)	{	return $this->dbconn->AddPayment($ref_id);}	
+	
 		}//end of class
 ?>

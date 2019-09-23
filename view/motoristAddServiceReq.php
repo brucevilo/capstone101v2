@@ -57,75 +57,6 @@ session_start();
 
 
 			<div class="header_absolute s-parallax ds bs s-overlay">
-
-				<!--topline section visible only on small screens|-->
-				<section class="page_toplogo ds s-overlay s-pt-10 s-pb-5 s-py-lg-30">
-					<div class="container">
-						<div class="row align-items-center">
-							<div class="col-lg-12">
-								<div class="d-lg-flex justify-content-lg-end align-items-lg-center">
-									<div class="mr-auto">
-										<!--
-							if you want to display toplogo info on smaller screens
-							than use following CSS classes below:
-						 	d-sm-flex justify-content-sm-center
-						 -->
-										<div class="d-none d-lg-flex justify-content-center justify-content-lg-start">
-											<a href="mechanicDashboard.php" class="logo">
-												<img src="images/logo.png" alt="">
-												<span class="logo-text fw-500">Mechannic<span class="fw-200">Hero</span></span>
-											</a>
-										</div>
-									</div>
-									<!--
-						if you want to display toplogo info on smaller screens
-						than use following CSS classes below:
-						d-sm-flex justify-lg-content-end justify-content-sm-between align-items-center
-					-->
-									<div class="d-flex justify-lg-content-end align-items-center meta-icons">
-										<div class="media">
-											<div class="icon-styled color-main fs-20">
-												<i class="ico-email"></i>
-											</div>
-											<div class="media-body">
-												<h6>Mail Us</h6>
-												<p class="fw-400">
-													Info@MechanicHero.com
-												</p>
-											</div>
-										</div>
-										<div class="media d-none d-md-flex">
-											<div class="icon-styled color-main fs-20">
-												<i class="ico-placeholder"></i>
-											</div>
-											<div class="media-body">
-												<h6>Location</h6>
-												<p class="fw-400">
-													Waukesha, WI 53186
-												</p>
-											</div>
-										</div>
-										<div class="media">
-											<div class="icon-styled color-main fs-20">
-												<i class="ico-phone-call"></i>
-											</div>
-											<div class="media-body">
-												<h6>Phone</h6>
-												<p class="fw-400">
-													+1 23 456 78 90
-												</p>
-											</div>
-										</div>
-									
-									</div>
-								</div>
-								<!-- header toggler -->
-							</div>
-						</div>
-					</div>
-				</section>
-
-
 				<!--eof topline-->
 
 				<!-- header with single Bootstrap column only for navigation and includes. Used with topline and toplogo sections. Menu toggler must be in toplogo section -->
@@ -154,11 +85,11 @@ session_start();
 											</li>
 										
 											<li>
-												<a href="motoristProfile.php">Profile</a>
+												<a href="motoristProfile.php"><i class="ico-user"></i></a>
 											</li>
 											<li>
 											<li>
-												<a href="logout.php">Logout</a>
+												<a href="logout.php"><i class="fa fa-sign-out"></i></a>
 											<li>
 							
 									</nav>
@@ -173,7 +104,7 @@ session_start();
 
 					<!-- header toggler -->
 
-					<span class="toggle_menu"><span></span></span>
+					<!-- <span class="toggle_menu"><span></span></span> -->
 
 				</header>
 <!-- 
@@ -218,61 +149,71 @@ session_start();
                     }
           
           </style>
-          <div class ="table" >
+          <div class ="table mechanic" >
           <table margin-left ="20"> 
 
                     
-				<br/>
+				
 				<span>Car Plate No :</span> <?php echo $_GET['plateno']?>
 				<input type="hidden" value ="<?php echo $_GET['plateno']?>" class="form-control" id="vehicle_plateno"  name="vehicle_plateno" >
 							
 								<div class="form-group has-placeholder">
+							<table colspan="2" rowspan ="2">
 							
-								<input type="date" class="form-control" id="request_date"  name="request_date" required>
+								<input type="date" class="form-control date_services" id="request_date" placeholder="date" name="request_date" required>
 								</div>
                        
 								<div class="form-group has-placeholder">
-								<input type="checkbox" value = "problem1" name="service[]" id="service[]">problem1
-                                <!-- </div>
-                                <div class="form-group has-placeholder"> -->
-								<input type="checkbox" value = "problem2" name="service[]" id="service[]">problem2
-                                </div>
-                                <div class="form-group has-placeholder">
-								<input type="checkbox" value = "problem3" name="service[]" id="service[]">problem3
-                                <!-- </div>
-                                <div class="form-group has-placeholder"> -->
-								<input type="checkbox" value = "problem4" name="service[]" id="service[]">problem4
-                                </div>
+								<tr>
+								<td width = "20%"><input type="checkbox" value = "Brakes Squeaking or Grinding" name="service[]" id="service[]">Brakes Squeaking or Grinding</td>
+								<td width = "40%"><input type="checkbox" value = "Warning Lights" name="service[]" id="service[]">Warning Lights </td>
+								</tr>
+							    </div>
 
-                                <div class="form-group has-placeholder">
-								<input type="checkbox" value = "problem5" name="service[]" id="service[]">problem5
-                                <!-- </div>
-                                <div class="form-group has-placeholder"> -->
-								<input type="checkbox" value = "problem6" name="service[]" id="service[]">problem6
+                                <div class="form-group has-placeholder"> 
+								<tr>
+								<td width = "20%"><input type="checkbox" value = " Overheating" name="service[]" id="service[]"> Overheating</td>
+								<td width = "40%"><input type="checkbox" value = "Dead Battery" name="service[]" id="service[]">Dead Battery</td>
+								<tr>
                                 </div>
-                                <div class="form-group has-placeholder">
-								<input type="checkbox" value = "problem7" name="service[]" id="service[]">problem7
-                                <!-- </div>
-                                <div class="form-group has-placeholder"> -->
-								<input type="checkbox" value = "problem8" name="service[]" id="service[]">problem8
+                               
+							    <div class="form-group has-placeholder">
+								<tr>
+								<td width = "20%"><input type="checkbox" value = "Failed Emissions Test" name="service[]" id="service[]">Failed Emissions Test</td>
+								<td width = "40%"><input type="checkbox" value = "Flat Tires" name="service[]" id="service[]">Flat Tires </div>
+								</tr>
+								<div>
+                                
+								<div class="form-group has-placeholder">
+								<tr>
+								<td width = "20%"><input type="checkbox" value = "Oil Leaks" name="service[]" id="service[]">Oil Leaks</td>   
+								<td width = "40%"><input type="checkbox" value = "Brakes Squeaking or Grinding" name="service[]" id="service[]">Brakes Squeaking or Grinding</td>
+								</tr>
                                 </div>
-                                <div class="form-group has-placeholder">
+								<div class="form-group has-placeholder">
+								<tr>
+								<td width = "20%"><input type="checkbox" value = "Dead Starter" name="service[]" id="service[]">Dead Starter</td>   
+								<td width = "40%"><input type="checkbox" value = "Spark Plugs" name="service[]" id="service[]">Spark Plugs</td>
+								</tr>
+                                </div>
                                 
 								
-								<div class="form-group has-placeholder">
-								<input type="text" name ="city" id="city" placeholder="Enter Address" required>
-								</div>
-								<div class="form-group has-placeholder">
-								<textarea cols="30" rows="4.1" name="problems" id ="problems" placeholder="More specific..." required></textarea>
-								</div>
-                                	
-								<div class="form-group has-placeholder">
-									<button type="submit" on name ="btnVehicle" id ="btnServReq" class="btn btn-small btn-maincolor log-btn">Post Service Request</button>
-								</div>
+                               
+                               </table> 
+								<div class="white-bg">
+									<div class="form-group has-placeholder">
+									<input type="text" name ="city" id="city" placeholder="Enter Address" required>
+									</div>
+									<div class="form-group has-placeholder">
+									<textarea cols="30" rows="4.1" name="problems" id ="problems" placeholder="More specific..." required></textarea>
+									</div>
+										
+									<div class="form-group has-placeholder">
+										<button type="submit" on name ="btnVehicle" id ="btnServReq" class="btn btn-small btn-maincolor log-btn">Post Service Request</button>
+									</div>
 
-								<div class="form-group has-placeholder">
 								</div>
-								
+									
 								
                                 </div>
 

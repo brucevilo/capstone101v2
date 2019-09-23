@@ -1,8 +1,8 @@
 <?php
 session_start();
-  if(!isset($_SESSION['mechanic'])){
-    header("location:index.php");
-  }
+// if(!isset($_SESSION['mechanic'])){
+//   header("location:index.php");
+// }
  ?> 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -14,7 +14,7 @@ session_start();
 
 
 <head>
-	<title>MechanicHero</title>
+	<title>MechanicHero></title>
 	<meta charset="utf-8">
 	<!--[if IE]>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -156,7 +156,79 @@ session_start();
 											<li>
 												<a href="mechanicProfile.php">Profile</a>
 											</li>
-											<li>
+											</li>
+						<?php     include('../controller/getallSr.php');?>
+									<!-- notification start -->
+  												<li>
+												  <div class="dropdown shop-card-dropdown">
+												<a class="dropdown-toggle dropdown-shopping-cart" href="#" role="button" id="dropdown-shopping-cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+													<i class="ico-shopping-bag"></i>
+											<?php
+											  if(count($noti1)>0){
+											?>		
+													<span class="badge bg-maincolor"><?php echo count($noti1);?></span>
+											  <?php }?>
+												</a>
+												<div class="dropdown-menu dropdown-menu-right ls" aria-labelledby="dropdown-shopping-cart">
+												
+												<div class="widget woocommerce widget_shopping_cart">
+														<h4>Car<span class="text-gradient">Notification</span></h4>
+											<?php 
+											 foreach ($noti as $notis){ 
+												  if($notis['notification']=='unread'){?>	
+												 	
+														<div class="widget_shopping_cart_content">												
+														<?php 	echo "<a href='paypal.php?id=".$notis['sra_id']."'>";?>
+																	<small><i><?php echo date('F j, Y, g:i a',strtotime($notis['date']));?></i></small><br>
+																		<span class="product-title fw-500">Mr/Ms.<?php echo $notis['lastname'];?> Accepted your qoute.</span>
+												  </b>
+																	</a>
+															
+																		<!-- <a href="#" class="remove" aria-label="Remove this item" data-product_id="73" data-product_sku=""><i class="fs-14 ico-trash color-main"></i></a> -->
+																		
+																	</div>
+
+																		</div>
+											<?php
+												  }
+										  if($notis['notification']=='read'){
+											?>		
+														<div class="widget_shopping_cart_content">		
+																						
+														<?php
+														
+														if($notis['paid']== "1"){
+															echo "<a href='mechanicSRAdeatails.php?id=".$notis['sra_id']."'>";
+													
+														}
+														else 
+														{
+															// echo "<a href='mechanicSRAdeatails.php?id=".$notis['sra_id']."'>";
+															echo "<a href='paypal.php?id=".$notis['sra_id']."'>";
+															// echo $notis['paid'];
+														}
+														?>
+														 		
+																	<small><i><?php echo date('F j, Y, g:i a',strtotime($notis['date']));?></i></small><br>
+																				<span class="">Mr/Ms. <?php echo $notis['lastname'];?> Accepted your qoute.</span>
+																	<!-- </a> -->
+															
+																		<!-- <a href="#" class="remove" aria-label="Remove this item" data-product_id="73" data-product_sku=""><i class="fs-14 ico-trash color-main"></i></a> -->
+																		
+																	</div>
+
+																		</div>
+																	
+											 <?php 
+															
+										}
+												  }
+											 
+											 
+								
+											 ?>
+												</li>				
+
 											<li>
 												<a href="logout.php">Logout</a>
 											<li>
@@ -175,64 +247,63 @@ session_start();
 
 					<span class="toggle_menu"><span></span></span>
 
-				</header>	
+				</header>
+				<?php
+        
+          
+            			
+            foreach($rows as $row){
 
-		
-                <section class="ls s-pt-55 s-pb-35 s-pt-lg-145 s-pb-lg-140 s-parallax s-overlay comingsoon">
-				<div class="divider-40 d-none d-lg-block"></div>
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-12 text-center">
-							<h2 class="special-heading">
-								Mechanic's<span class="text-gradient">Qoute.</span>
-							</h2>
-							<style>
-								.center {
-									margin: auto;
-									width: 50%;
-									padding: 10px;
-									border: 2px solid #ccc;
-									background-color: #ffffff;
-								}
+            echo " <article class='post side-item text-center text-md-left content-padding bordered event-post'>";
+            echo "<div class='row'>";
+			echo "<div class='col-xl-3 col-lg-3 col-md-3'>";
+										echo "<div class='item-media cover-image'>";
+										
+										echo "<img src='../controller/images/".$row['vehicle_image']."' alt=''>";
+										// echo "<img src='../controller/images/9383-car-repair-362150_960_720.jpg alt=''>";
+										// echo "img src='../controller/images/".$row['vehicle_imaged'];
+										echo "<div class='media-links'>";
+										echo "<a class='abs-link' title='' href='mechViewCar.php?id=".$row['servreqid']."'></a>";	
+									echo "		</div>
+                                    </div>
+                                </div>";
 
-								input[type=text] {
-									width: 50%;
-									margin: center;
-									padding: 12px 20px;
-									margin: 8px 0;
-									box-sizing: border-box;
-									color: #ff4e3c;
-								}
-                              
-                               </style>
-							<div class="center">
-                            <form class="paypal" action="payments.php" method="post" id="paypal_form">
-        <input type="hidden" name="cmd" value="_xclick" />
-        <input type="hidden" name="no_note" value="1" />
-        <input type="hidden" name="lc" value="PHP">
-        <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHostedGuest" />
-        <input type="hidden" name="first_name" value="Customer's First Name" />
-        <input type="hidden" name="last_name" value="Customer's Last Name" />
-        <input type="hidden" name="payer_email" value="customer@example.com" />
-        <input type="hidden" name="item_number" value="123456" / >
-        <input type="hidden" name="id" value="<?php echo $_GET['id'];?>">
-        <input type="hidden" name="email" value="<?php echo $_SESSION['email'];?>">
-        Please sumbit payment to show customer details.
-        <input class="btn btn-small btn-maincolor log-btn" type="submit" name="submit" value="Submit Payment"/>
-    </form>
-						
-							</div>
-							<!-- <h6 class="mt-0">Stay Tuned!</h6>		
-							<div id="comingsoon-countdown"></div> -->
-							<!--
-					use "data-date" attribute with your date value to set date that you need to count to
-					<div id="comingsoon-countdown" data-date="March 29, 2018 10:00:00"></div>
-				-->
-			</form>
-						</div>
-					</div>
-				</div>
-			</section>
+									echo "<div class='col-xl-7 col-lg-6 col-md-5'>";
+									echo "<div class='divider-11 d-none d-xl-block'></div>";
+                                    echo "	<div class='item-content'>
+                                              <h4>";
+                                    echo  $row['service']."</h4>";
+                                    
+												
+										
+
+										echo "<div class='mb-10 item-meta color-darkgrey'>";
+									
+										echo  strtoupper("<h6>Brand :".$row['vehicle_brand']."<br/>") ;		
+										// echo "</span>
+										// 		<span>";
+										echo  strtoupper("Model :".$row['vehicle_model']."</span></h6>");
+                                        echo  strtoupper("Address :".$row['city']."</span></h6> <br/>");
+                                        echo  strtoupper("<h7>More Info :".$row['problems']."</span><br/>");
+										
+										echo "<a href='mechViewCar.php?id=".$row['servreqid']."'  class='btn btn-small btn-outline-maincolor btn-appointment' >View Details</a>";
+
+                                        // echo "</span>";
+										echo "</div>";
+                                        // echo  strtoupper(" <span>".$row['vehicle_service']."</span></h6>");
+										echo "</p>";
+										echo "</p>";
+
+									echo"	</div>
+									</div>
+								</div>
+							</article>
+
+                            </div>
+                </div> ";
+            }
+                ?>
+
 
 			<section class="page_copyright ds ms s-pt-5 s-pb-25 s-py-lg-20">
 				<div class="container">

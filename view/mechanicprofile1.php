@@ -1,8 +1,8 @@
 <?php
 session_start();
-//   if(!isset($_SESSION['mechanic'])){
-//     header("location:index.php");
-//   }
+  if(!isset($_SESSION['motorist'])){
+    header("location:index.php");
+  }
  ?> 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -59,71 +59,7 @@ session_start();
 			<div class="header_absolute s-parallax ds bs s-overlay">
 
 				<!--topline section visible only on small screens|-->
-				<section class="page_toplogo ds s-overlay s-pt-10 s-pb-5 s-py-lg-30">
-					<div class="container">
-						<div class="row align-items-center">
-							<div class="col-lg-12">
-								<div class="d-lg-flex justify-content-lg-end align-items-lg-center">
-									<div class="mr-auto">
-										<!--
-							if you want to display toplogo info on smaller screens
-							than use following CSS classes below:
-						 	d-sm-flex justify-content-sm-center
-						 -->
-										<div class="d-none d-lg-flex justify-content-center justify-content-lg-start">
-											<a href="mechanicDashboard.php" class="logo">
-												<img src="images/logo.png" alt="">
-												<span class="logo-text fw-500">Mechannic<span class="fw-200">Hero</span></span>
-											</a>
-										</div>
-									</div>
-									<!--
-						if you want to display toplogo info on smaller screens
-						than use following CSS classes below:
-						d-sm-flex justify-lg-content-end justify-content-sm-between align-items-center
-					-->
-									<div class="d-flex justify-lg-content-end align-items-center meta-icons">
-										<div class="media">
-											<div class="icon-styled color-main fs-20">
-												<i class="ico-email"></i>
-											</div>
-											<div class="media-body">
-												<h6>Mail Us</h6>
-												<p class="fw-400">
-													Info@MechanicHero.com
-												</p>
-											</div>
-										</div>
-										<div class="media d-none d-md-flex">
-											<div class="icon-styled color-main fs-20">
-												<i class="ico-placeholder"></i>
-											</div>
-											<div class="media-body">
-												<h6>Location</h6>
-												<p class="fw-400">
-													Waukesha, WI 53186
-												</p>
-											</div>
-										</div>
-										<div class="media">
-											<div class="icon-styled color-main fs-20">
-												<i class="ico-phone-call"></i>
-											</div>
-											<div class="media-body">
-												<h6>Phone</h6>
-												<p class="fw-400">
-													+1 23 456 78 90
-												</p>
-											</div>
-										</div>
-									
-									</div>
-								</div>
-								<!-- header toggler -->
-							</div>
-						</div>
-					</div>
-				</section>
+				
 
 
 				<!--eof topline-->
@@ -144,21 +80,21 @@ session_start();
 									<!-- main nav start -->
 									<nav class="top-nav">
 										<ul class="nav sf-menu">
-                                        <li class="active">
-												<a href="mechanicDashboard.php">Home</a>
+										<li class="active">
+												<a href="motoristDashboard.php">Service</a>
 											
 											</li>
 
 											<li>
-												<a href="mechanicOnGoing.php">On-Going-Work</a>
+												<a href="motoristVehicle.php">Vehicle</a>
 											</li>
 										
 											<li>
-												<a href="mechanicProfile.php">Profile</a>
+												<a href="motoristProfile.php"><i class="ico-user"></i></a>
 											</li>
 											<li>
 											<li>
-												<a href="logout.php">Logout</a>
+												<a href="logout.php"><i class="fa fa-sign-out"></i></a>
 											<li>
 							
 									</nav>
@@ -193,6 +129,7 @@ session_start();
 
  <?php
  $ref_id =$_GET['id'];
+ 
   include('../controller/getMechanicByID.php');?> 
 
 				<section class="ls s-py-60 s-py-lg-100 s-py-xl-150 c-gutter-60">
@@ -221,7 +158,7 @@ session_start();
 
 
 									</div>
-									<!-- .entry-content -->
+									<!-- .entry-content  -->
 
 								</div>
 								<!-- .item-content -->
@@ -233,49 +170,104 @@ session_start();
 								<h4 id="reply-title" class="fw-700 comment-reply-title">Mechanic<span class="text-gradient">History</span></h4>
 
 								<div id="respond" class="comment-respond ls d-flex">
-									<form action="http://webdesign-finder.com/" method="post" id="commentform" class="comment-form" novalidate="">
-										<div class="comment-form-author form-group has-placeholder">
-											<label for="author">Name</label>
-											<input class="form-control" id="author" name="author" type="text" value="" size="30" maxlength="245" aria-required="true" required="required" placeholder="Enter your name">
-										</div>
-										<p class="comment-form-email form-group has-placeholder">
-											<label for="email">Email </label>
-											<input class="form-control" id="email" name="email" type="email" value="" size="30" maxlength="100" aria-required="true" required="required" placeholder="Enter your email">
-										</p>
-
+									<form action="../controller/addReview.php" method="post" id="commentform" class="comment-form" novalidate="">
 										<p class="comment-form-comment form-group has-placeholder">
 											<label for="comment">Comment</label>
+											<input type="hidden" value=<?php echo $ref_id?> name="mechanicid">
 											<textarea class="form-control" id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required" placeholder="Enter your message"></textarea>
 										</p>
 										<p class="form-submit">
-											<button type="button" class="btn btn-small btn-maincolor">Leave Comment</button>
+											<button type="submit" name="btnComment"class="btn btn-small btn-maincolor">Leave Comment</button>
 										</p>
 									</form>
 								</div>
 								<!-- #respond -->
+								<?php if($review<1)
+							{?>
+														<div class="comment-content">
+														<p>
+																No Feedbacks Yet...
+														</p>
+													</div>
+
+													<?php  }
+							else {
+							foreach($review as $u){
+								?>
 								<ol class="comment-list">
 									<li class="comment">
 										<article class="comment-body">
 											<footer class="comment-meta">
 												<div class="comment-author vcard">
-													<img alt="" src="images/team/comments-04.jpg">
+													<!-- <img alt="" src="images/team/comments-04.jpg"> -->
 												</div>
 												<!-- .comment-author -->
 												<div class="comment-name d-block d-md-flex justify-content-between">
 													<b class="fn">
-														<a href="#" rel="nofollow" class="url fw-500">Jeffrey P. McAllister</a>
+														<a href="#" rel="nofollow" class="url fw-500"><?php echo strtoupper($u['name']);?></a>
 													</b>
 													<span class="comment-metadata d-block links-grey">
 														<a href="#">
 															<i class="fs-14 color-main ico-clock-alt"></i>
-															2 min ago
+															<?php $time_ago = strtotime($u['review_date']);
+																  $current_time = time();
+																  $time_differce =  $current_time - $time_ago;
+																  $seconds =$time_differce;
+																  $minutes = round($seconds/60);
+																  $hours = round($seconds/3600);
+																  $days = round($seconds/86400);
+																  $weeks= round($seconds/604800);
+																// secho $seconds;
+																  if($seconds <= 60)
+																  {
+																	  echo "Just Now";
+																  }
+																  else if($minutes <=60){
+																	  if($minutes==1)
+																	  {
+																		  echo "one minute ago";
+																	  }
+																	  else{ echo "$minutes minutes ago";}
+																  }
+																  else if($hours <=12)
+																  {
+																	  if($hours == 1)
+																	  { echo "hour ago";}
+																	  else
+																	  {echo "$hours hours ago";}
+																  }
+																  else if($days <=12)
+																  {
+																	  if($days == 1)
+																	  { echo "A day ago";}
+																	  else
+																	  {echo "$days day ago";}
+																  }
+																  else if($weeks <=12)
+																  {
+																	  if($weeks == 1)
+																	  { echo "A week ago";}
+																	  else
+																	  {echo "$weeks day ago";}
+																  }
+																  
+
+																
+																
+															?>
 														</a>
 													</span>
+													
 													<!-- .comment-metadata -->
 												</div>
-
-		
-
+												<div class="comment-content">
+														<p>
+															<?php echo $u['comment']?>
+														</p>
+													</div>
+									</article>
+									</li>
+							<?php  } }?>	
 		</div><!-- eof #box_wrapper -->
 	</div><!-- eof #canvas -->
 

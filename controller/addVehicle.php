@@ -25,7 +25,7 @@ $vehicle_mileage=$_POST['vehicle_mileage'];
  $vehicle_drivertype =$_POST['vehicle_drivertype'];
  $vehicle_color =$_POST['vehicle_color'];
  $vehicle_regno =$_POST['vehicle_regno'];
- 
+ $vehicle_engine =$_POST['vehicle_engine'];
  $vehicle_plateno=$_POST['vehicle_plateno'];
  $status="";
 
@@ -35,10 +35,10 @@ $vehicle_mileage=$_POST['vehicle_mileage'];
 //             'mechtype'=>$mechtype,'status'=>$status,'password' => $password); 
 $data =[$motoristEmail,$vehicle_image,$vehicle_mileage, 
         $vehicle_brand,$vehicle_model,$vehicle_drivertype,
-        $vehicle_color,$vehicle_regno,$vehicle_plateno,$status]; 
+        $vehicle_color,$vehicle_regno,$vehicle_plateno,$status,$vehicle_engine]; 
 $ok =$vehicle->createVehicle($data);
-print_r($ok);
-if($ok==1){
+// print_r($ok); die;
+if($ok>0){
        
         echo "<script>alert('Vehicle Added!');window.location='../view/motoristVehicle.php'</script>";
         }

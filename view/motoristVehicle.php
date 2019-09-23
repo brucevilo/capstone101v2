@@ -99,10 +99,10 @@ session_start();
 									<input type="text" class="form-control" id="vehicle_brand" placeholder="Car Brand" name="vehicle_brand" require>
 								</div>
 								<div class="form-group has-placeholder">
-									<input type="text" class="form-control" id="vehicle_model" placeholder="Car Model" name="vehicle_model" require>
+									<input type="text" class="form-control" id="vehicle_model" placeholder="Car Model/Year" name="vehicle_model" require>
 								</div>
 								<div class="form-group has-placeholder">
-									<input type="text" class="form-control" id="vehicle_drivertype" placeholder="Driver Type" name="vehicle_drivertype" require>
+									<input type="text" class="form-control" id="vehicle_drivertype" placeholder="Transmission" name="vehicle_drivertype" require>
 								</div>
 	
 							
@@ -118,7 +118,9 @@ session_start();
 						<br/>	
 						</div>
 						<div class="modal-body">
-							
+						<div class="form-group has-placeholder">
+									<input type="text" class="form-control" id="vehicle_engine" placeholder="Engine Name" name="vehicle_engine" require>
+								</div>
 								<div class="form-group has-placeholder">
 									<input type="text" class="form-control" id="vehicle_color" placeholder="Car Color" name="vehicle_color" require>
 								</div>
@@ -183,72 +185,6 @@ $(document).ready(function{
 
 			<div class="header_absolute s-parallax ds bs s-overlay">
 
-				<!--topline section visible only on small screens|-->
-				<section class="page_toplogo ds s-overlay s-pt-10 s-pb-5 s-py-lg-30">
-					<div class="container">
-						<div class="row align-items-center">
-							<div class="col-lg-12">
-								<div class="d-lg-flex justify-content-lg-end align-items-lg-center">
-									<div class="mr-auto">
-										<!--
-							if you want to display toplogo info on smaller screens
-							than use following CSS classes below:
-						 	d-sm-flex justify-content-sm-center
-						 -->
-										<div class="d-none d-lg-flex justify-content-center justify-content-lg-start">
-											<a href="mechanicDashboard.php" class="logo">
-												<img src="images/logo.png" alt="">
-												<span class="logo-text fw-500">Mechannic<span class="fw-200">Hero</span></span>
-											</a>
-										</div>
-									</div>
-									<!--
-						if you want to display toplogo info on smaller screens
-						than use following CSS classes below:
-						d-sm-flex justify-lg-content-end justify-content-sm-between align-items-center
-					-->
-									<div class="d-flex justify-lg-content-end align-items-center meta-icons">
-										<div class="media">
-											<div class="icon-styled color-main fs-20">
-												<i class="ico-email"></i>
-											</div>
-											<div class="media-body">
-												<h6>Mail Us</h6>
-												<p class="fw-400">
-													Info@MechanicHero.com
-												</p>
-											</div>
-										</div>
-										<div class="media d-none d-md-flex">
-											<div class="icon-styled color-main fs-20">
-												<i class="ico-placeholder"></i>
-											</div>
-											<div class="media-body">
-												<h6>Location</h6>
-												<p class="fw-400">
-													Waukesha, WI 53186
-												</p>
-											</div>
-										</div>
-										<div class="media">
-											<div class="icon-styled color-main fs-20">
-												<i class="ico-phone-call"></i>
-											</div>
-											<div class="media-body">
-												<h6>Phone</h6>
-												<p class="fw-400">
-													+1 23 456 78 90
-												</p>
-											</div>
-										</div>
-									
-									</div>
-								</div>
-								<!-- header toggler -->
-							</div>
-						</div>
-					</div>
-				</section>
 
 
 				<!--eof topline-->
@@ -279,14 +215,13 @@ $(document).ready(function{
 											</li>
 										
 											<li>
-												<a href="motoristProfile.php">Profile</a>
+												<a href="motoristProfile.php"><i class="ico-user"></i></a>
 											</li>
 											
-												
 											<li>
-												<a href="logout.php">Logout</a>
+												<a href="logout.php"><i class="fa fa-sign-out"></i></a>
 											<li>
-							
+										
 									</nav>
 									<!-- eof main nav -->
 
@@ -299,13 +234,13 @@ $(document).ready(function{
 
 					<!-- header toggler -->
 
-					<span class="toggle_menu"><span></span></span>
+					<!-- <span class="toggle_menu"><span></span></span> -->
 
 				</header>
 
 				<section class="page_title ds s-pt-105 s-pb-50 s-pt-lg-115 s-pb-lg-60">
 					<div class="divider-3 d-none d-lg-block"></div>
-					<div class="container">
+					<div class="container mechanic">
 						<div class="row">
 
 							<div class="col-md-12">
@@ -381,119 +316,6 @@ $(document).ready(function{
                 </div> ";
             }
                 ?>
-
-
-			<footer class="page_footer text-center text-md-left ds ms s-pt-65 s-pt-lg-125 s-pb-lg-35 c-gutter-40 main-footer">
-				<div class="container">
-					<div class="row">
-						<div class="divider-20 d-none d-lg-block"></div>
-
-						<div class="col-md-6 col-lg-3 animate" data-animation="fadeInUp">
-
-							<div class="widget widget_icons_list">
-								<a href="mechanicDashboard.php" class="logo">
-									<img src="images/logo.png" alt="">
-									<span class="logo-text fw-500">Mechannic<span class="fw-200">Hero</span></span>
-								</a>
-								<div class="media side-icon-box">
-									<div class="icon-styled color-main">
-										<i class="fa fa-map-marker"></i>
-									</div>
-									<p class="media-body color-grey">2688 Simpson Avenue Harrisburg, PA 17109 </p>
-								</div>
-								<div class="media side-icon-box">
-									<div class="icon-styled color-main">
-										<i class="fa fa-phone"></i>
-									</div>
-
-									<p class="media-body color-grey">+1 234 56 78</p>
-								</div>
-								<div class="media side-icon-box">
-									<div class="icon-styled color-main">
-										<i class="fa fa-envelope"></i>
-									</div>
-									<p class="media-body color-grey">
-										<a href="mailto:">info@MechnicHero.com</a>
-									</p>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-md-6 col-lg-3 animate order-md-3 order-lg-2" data-animation="fadeInUp">
-							<div class="widget widget_page_links">
-								<h3>Useful Pages</h3>
-								<ul>
-									<li>
-										<a href="#"><i class="ico-check-circle"></i>Contact Us</a>
-									</li>
-									<li>
-										<a href="#"><i class="ico-check-circle"></i>Blog post</a>
-									</li>
-									<li>
-										<a href="#"><i class="ico-check-circle"></i>About Us</a>
-									</li>
-									<li>
-										<a href="#"><i class="ico-check-circle"></i>Services</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="col-md-6 col-lg-3 animate order-md-4 order-lg-3" data-animation="fadeInUp">
-							<div class="widget widget_services_links">
-								<h3>Services</h3>
-								<ul>
-									<li>
-										<a href="#"><i class="ico-check-circle"></i>Exterior Hand Wash</a>
-									</li>
-									<li>
-										<a href="#"><i class="ico-check-circle"></i>Tower Hand Dry</a>
-									</li>
-									<li>
-										<a href="#"><i class="ico-check-circle"></i>Tire Dressing</a>
-									</li>
-									<li>
-										<a href="#"><i class="ico-check-circle"></i>Wheel Shine</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="col-md-6 col-lg-3 c-gutter-10 animate order-lg-4" data-animation="fadeInUp">
-							<div class="widget widget_working_hours">
-								<h3>Our Hours</h3>
-								<ul>
-									<li class="row">
-										<div class="color-grey col-3">
-											Mn-Fr
-										</div>
-										<div class="col-md-9 col-5">
-											<span class="color-darkgrey">9.<sup>00</sup>am - 8.<sup>00</sup>pm</span>
-										</div>
-									</li>
-									<li class="row">
-										<div class="color-grey col-3">
-											Sat
-										</div>
-										<div class="col-md-9 col-5">
-											<span class="color-darkgrey">9.<sup>00</sup>am - 4.<sup>00</sup>pm</span>
-										</div>
-									</li>
-									<li class="row">
-										<div class="color-grey col-3">
-											Sun
-										</div>
-										<div class="col-md-9 col-5">
-											<span class="color-darkgrey">output</span>
-										</div>
-									</li>
-								</ul>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</footer>
 
 
 			<section class="page_copyright ds ms s-pt-5 s-pb-25 s-py-lg-20">

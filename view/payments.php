@@ -7,21 +7,23 @@ $dbConfig = [
     'password' => '',
     'name' => 'mechanichero'
 ];
-$id = $_POST['id'];
-// echo $id; die;
+$email =$_POST['email'];
+$ref_id = $_POST['id'];
+$ln ="http://localhost/capstone101/view/mechanicSRAdeatails.php?id=".$ref_id;
 $paypalConfig = [
-    'email' => 'user@example.com',
-    'return_url' => 'http://localhost/capstone101/view/mechanicSRAdeatails.php?=$id',
+    'email' => $email,
+    'return_url' => $ln,
     'cancel_url' => 'http://example.com/payment-cancelled.html',
     'notify_url' => 'http://example.com/payments.php'
 ];
 
 $paypalUrl = $enableSandbox ? 'https://www.sandbox.paypal.com/cgi-bin/webscr' : 'https://www.paypal.com/cgi-bin/webscr';
-
+$ref_id = $_POST['id'];
+include('../controller/payment.php');
 $itemName = 'Test Item';
-$itemAmount = 1.00;
+$itemAmount = 50.00;
 
-require '../view/functions.php  ';
+require 'functions.php';
 
 if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])) {
     $data = [];
@@ -37,7 +39,7 @@ if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])) {
 
     $data['item_name'] = $itemName;
     $data['amount'] = $itemAmount;
-    $data['currency_code'] = 'GBP';
+    $data['currency_code'] = 'PHP';
 
     $queryString = http_build_query($data);
 
@@ -71,6 +73,6 @@ $data = [
 if (verifyTransaction($_POST) && checkTxnid($data['txn_id'])) {
     if (addPayment($data) !== false) {
         // Payment successfully added.
-        addPayment($data);
+       
         }
 }

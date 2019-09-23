@@ -1,9 +1,8 @@
 <?php
 session_start();
-  if(!isset($_SESSION['motorist'])){
+  if(!isset($_SESSION['mechanic'])){
     header("location:index.php");
   }
-
  ?> 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -59,6 +58,74 @@ session_start();
 
 			<div class="header_absolute s-parallax ds bs s-overlay">
 
+				<!--topline section visible only on small screens|-->
+				<section class="page_toplogo ds s-overlay s-pt-10 s-pb-5 s-py-lg-30">
+					<div class="container">
+						<div class="row align-items-center">
+							<div class="col-lg-12">
+								<div class="d-lg-flex justify-content-lg-end align-items-lg-center">
+									<div class="mr-auto">
+										<!--
+							if you want to display toplogo info on smaller screens
+							than use following CSS classes below:
+						 	d-sm-flex justify-content-sm-center
+						 -->
+										<div class="d-none d-lg-flex justify-content-center justify-content-lg-start">
+											<a href="mechanicDashboard.php" class="logo">
+												<img src="images/logo.png" alt="">
+												<span class="logo-text fw-500">Mechannic<span class="fw-200">Hero</span></span>
+											</a>
+										</div>
+									</div>
+									<!--
+						if you want to display toplogo info on smaller screens
+						than use following CSS classes below:
+						d-sm-flex justify-lg-content-end justify-content-sm-between align-items-center
+					-->
+									<div class="d-flex justify-lg-content-end align-items-center meta-icons">
+										<div class="media">
+											<div class="icon-styled color-main fs-20">
+												<i class="ico-email"></i>
+											</div>
+											<div class="media-body">
+												<h6>Mail Us</h6>
+												<p class="fw-400">
+													Info@MechanicHero.com
+												</p>
+											</div>
+										</div>
+										<div class="media d-none d-md-flex">
+											<div class="icon-styled color-main fs-20">
+												<i class="ico-placeholder"></i>
+											</div>
+											<div class="media-body">
+												<h6>Location</h6>
+												<p class="fw-400">
+													Waukesha, WI 53186
+												</p>
+											</div>
+										</div>
+										<div class="media">
+											<div class="icon-styled color-main fs-20">
+												<i class="ico-phone-call"></i>
+											</div>
+											<div class="media-body">
+												<h6>Phone</h6>
+												<p class="fw-400">
+													+1 23 456 78 90
+												</p>
+											</div>
+										</div>
+									
+									</div>
+								</div>
+								<!-- header toggler -->
+							</div>
+						</div>
+					</div>
+				</section>
+
+
 				<!--eof topline-->
 
 				<!-- header with single Bootstrap column only for navigation and includes. Used with topline and toplogo sections. Menu toggler must be in toplogo section -->
@@ -78,22 +145,24 @@ session_start();
 									<nav class="top-nav">
 										<ul class="nav sf-menu">
                                         <li class="active">
-												<a href="motoristDashboard.php">Service</a>
+												<a href="mechanicDashboard.php">Home</a>
 											
 											</li>
 
 											<li>
-												<a href="motoristVehicle.php">Vehicle</a>
+												<a href="mechanicOnGoing.php">On-Going-Work</a>
 											</li>
 										
+										
 											<li>
-												<a href="motoristProfile.php"><i class="ico-user"></i></a>
+												<a href="mechanicProfile.php"><i class="ico-user"></i></a>
 											</li>
 											<li>
 											<li>
 												<a href="logout.php"><i class="fa fa-sign-out"></i></a>
 											<li>
-										
+							
+							
 									</nav>
 									<!-- eof main nav -->
 
@@ -106,16 +175,14 @@ session_start();
 
 					<!-- header toggler -->
 
-					<!-- <span class="toggle_menu"><span></span></span> -->
-			
-				</header>
+					<span class="toggle_menu"><span></span></span>
 
-
+				</header>	
 
 		
                 <section class="ls s-pt-55 s-pb-35 s-pt-lg-145 s-pb-lg-140 s-parallax s-overlay comingsoon">
 				<div class="divider-40 d-none d-lg-block"></div>
-				<div class="container mechanic">
+				<div class="container">
 					<div class="row">
 						<div class="col-sm-12 text-center">
 							<h2 class="special-heading">
@@ -140,40 +207,13 @@ session_start();
 								}
 							</style>
 							<div class="center">
-                                <form action="../controller/addServiceRequestAccepted.php" method="post">
-                                <?php 
-                                $ref_id = $_GET['id'];
-                             
-                                include('../controller/getIdSRR.php'); ?>
-								
-                                    <input type="hidden" value ="<?php echo $row['serve_post_respid'];?>"name="serve_post_respid" >
-									<div class="form-group has-placeholder">
-								<b>Sender Name :</b> <a href = "mechanicProfile1.php?id=<?php echo $row['mechanicid']?>"><?php echo strtoupper($row['lastname']).", ".strtoupper ($row['firstname']) ?></a>
-									<br/>
-									<b>Car Plate No :</b> <?php echo strtoupper($row['vehicle_plateno'])?>
-									<br/>
-									<b>Car Problems :</b> <?php echo strtoupper($row['service'])?>
-									<br/>
-									<b>Problem Description:</b> <?php echo strtoupper($row['problems'])?>
-									<br/>
-									<b>Mechanic's Estimated Cost:</b> <?php echo strtoupper($row['bid'])?>
-									<br/>
-									<b>Mechanic's Qoute:</b> <?php echo strtoupper($row['biddesc'])?>
-									<br/>
-									<input type="text" placeholder="Contact Number" name="contactno" required>
-									<br/>
-									<input type="text" placeholder ="Address" name="addresss" required>
-									</div>	
-								
-									<input type="checkbox" placeholder ="" name="address" required>I agree with your term's and Agreements.
-									</div>	
-									
-                                    <button type="submit" name="btnSRR" class="btn btn-small btn-maincolor log-btn">Accept</button>
-                                    <a href="motoristDashboard.php"  class="btn btn-small btn-maincolor log-btn">Cancel</a>
+                             You have successfully you may click the notification again to see the infornamtion.
+							 <a href="mechanicDashboard.php" type= 'button'>Back</a>
+						
 							</div>
 							<!-- <h6 class="mt-0">Stay Tuned!</h6>		
 							<div id="comingsoon-countdown"></div> -->
-				<!--
+							<!--
 					use "data-date" attribute with your date value to set date that you need to count to
 					<div id="comingsoon-countdown" data-date="March 29, 2018 10:00:00"></div>
 				-->

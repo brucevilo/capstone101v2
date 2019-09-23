@@ -9,7 +9,7 @@
 			private $field_id ="vehicleid";
 			private $fieldnames=["motoristid","vehicle_image","vehicle_mileage","vehicle_brand",
 								"vehicle_model","vehicle_drivertype","vehicle_color","vehicle_regno",
-								"vehicle_plateno","status"];
+								"vehicle_plateno","status","vehicle_engine"];
 
 			private $dbconn;
 	

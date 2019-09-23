@@ -20,7 +20,7 @@
 
 
 <head>
-	<title>CandyCar - Repair, Towing, Tuning SinglePage and MultePage HTML template</title>
+	<title>Mechanic Hero - Car First Aid</title>
 	<meta charset="utf-8">
 	<!--[if IE]>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -87,7 +87,7 @@
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span>×</span>
 				</button>
-				<div class="col-md-6 col-sm-12">
+				<div class="col-md-6">
 					<div class="modal-content">
 						<div class="modal-header justify-content-center">
 							<h4 class="modal-title">Sign in</h4>
@@ -112,7 +112,7 @@
 							<br/>
 							<br/>
 							<br/>
-							<div col-sm-12>
+							<div>
 								Register Now.<br/>
 									<a href="mechanicRegistration.html"  class="btn btn-small btn-outline-maincolor btn-appointment">Mechanic</a>
 									<a href="motoristRegistration.php"  class="btn btn-small btn-outline-maincolor btn-appointment">Motorist</a>
@@ -127,7 +127,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-6 hidden-sm hidden-xs  ds s-overlay">
+				<div class="col-md-6 hidden-sm hidden-xs ds s-overlay">
 					<img src="images/modal-login-form.jpg" alt="">
 				</div>
 			</div>
@@ -168,7 +168,51 @@
 						than use following CSS classes below:
 						d-sm-flex justify-lg-content-end justify-content-sm-between align-items-center
 					-->
-								
+									<div class="d-flex justify-lg-content-end align-items-center meta-icons">
+										<div class="media">
+											<div class="icon-styled color-main fs-20">
+												<i class="ico-email"></i>
+											</div>
+											<div class="media-body">
+												<h6>Mail Us</h6>
+												<p class="fw-400">
+													Info@candycar.com
+												</p>
+											</div>
+										</div>
+										<div class="media d-none d-md-flex">
+											<div class="icon-styled color-main fs-20">
+												<i class="ico-placeholder"></i>
+											</div>
+											<div class="media-body">
+												<h6>Location</h6>
+												<p class="fw-400">
+													Waukesha, WI 53186
+												</p>
+											</div>
+										</div>
+										<div class="media">
+											<div class="icon-styled color-main fs-20">
+												<i class="ico-phone-call"></i>
+											</div>
+											<div class="media-body">
+												<h6>Phone</h6>
+												<p class="fw-400">
+													+1 23 456 78 90
+												</p>
+											</div>
+										</div>
+										<div class="d-none d-xl-block">
+											<a href="#modalLoginForm" data-toggle="modal" class="btn btn-small btn-outline-maincolor btn-appointment">Register/Login</a>
+										</div>
+									</div>
+								</div>
+								<!-- header toggler -->
+							</div>
+						</div>
+					</div>
+				</section>
+
 
 				<!--eof topline-->
 
@@ -234,144 +278,144 @@
 
 			</div>
 
-				<section class="page_slider">
-					<div class="flexslider" data-nav="false" data-dots="true">
-						<ul class="slides">
-							<li class="ds bs cover-image flex-slide">
-								<span class="flexslider-overlay"></span>
-								<img src="images/slide01.jpg" alt="">
-								<div class="container">
-									<div class="row">
-										<div class="col-md-12">
-											<div class="intro_layers_wrapper text-center text-xl-left">
-												<div class="intro_layers">
-													<div class="divider-20 d-none d-lg-block d-xl-none"></div>
-													<div class="intro_layer" data-animation="fadeInDown">
-														<h2 class="text-uppercase intro_featured_word">
-															<span class="color-main">Full</span>
-															<span class="flex-gradient">
-																<span id="typed-strings">
-																	<span>Collision</span>
-																	<span>Tuning</span>
-																	<span>Repair</span>
-																</span>
-																<span id="typed"></span>
+			<section class="page_slider">
+				<div class="flexslider" data-nav="false" data-dots="true">
+					<ul class="slides">
+						<li class="ds bs cover-image flex-slide">
+							<span class="flexslider-overlay"></span>
+							<img src="images/slide01.jpg" alt="">
+							<div class="container">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="intro_layers_wrapper text-center text-xl-left">
+											<div class="intro_layers">
+												<div class="divider-20 d-none d-lg-block d-xl-none"></div>
+												<div class="intro_layer" data-animation="fadeInDown">
+													<h2 class="text-uppercase intro_featured_word">
+														<span class="color-main">First Aid</span>
+														<span class="flex-gradient">
+															<span id="typed-strings">
+																<span>Collision</span>
+																<span>Tuning</span>
+																<span>Repair</span>
 															</span>
-														</h2>
+															<span id="typed"></span>
+														</span>
+													</h2>
+												</div>
+												<div class="intro_layer" data-animation="fadeInDown">
+													<h2 class="text-uppercase intro_featured_word">
+														& Auto Body Services
+													</h2>
+												</div>
+												<div class="intro_layer" data-animation="fadeInDown">
+													<ul class="list1">
+														<li>Booking Service</li>
+														<li>Service Estimated Qoute</li>
+														<li>Trusted Mechanics</li>
+														<li>We Work with Insurance Companies</li>
+													</ul>
+												</div>
+												<div class="intro_layer" data-animation="fadeInDown">
+													<div class="slide-button">
+														<a class="btn btn-small btn-maincolor" href="#modalLoginForm" data-toggle="modal">Get Started</a>
 													</div>
-													<div class="intro_layer" data-animation="fadeInDown">
-														<h2 class="text-uppercase intro_featured_word">
-															& Auto Body Services
-														</h2>
-													</div>
-													<div class="intro_layer" data-animation="fadeInDown">
-														<ul class="list1">
-															<li>Complete Restoration Available</li>
-															<li>9 Foot Tall Spray Booth</li>
-															<li>Can Paint & Repair Sprinter Vans</li>
-															<li>We Work with Insurance Companies</li>
-														</ul>
-													</div>
-													<div class="intro_layer" data-animation="fadeInDown">
-														<div class="slide-button">
-															<a class="btn btn-small btn-maincolor" href="#modalLoginForm" data-toggle="modal">Get Started</a>
-														</div>
-													</div>
-												</div> <!-- eof .intro_layers -->
+												</div>
+											</div> <!-- eof .intro_layers -->
 
-											</div> <!-- eof .intro_layers_wrapper -->
-										</div> <!-- eof .col-* -->
-									</div><!-- eof .row -->
-								</div><!-- eof .container-fluid -->
-								<div class="ds social-flex d-none d-lg-block">
-									<p class="social-icons with-border">
-										<span><a href="https://www.facebook.com/" class="fa fa-facebook border-icon rounded-icon" title="facebook"></a></span>
-										<span><a href="https://telegram.org/" class="fa fa-paper-plane border-icon rounded-icon" title="telegram"></a></span>
-										<span><a href="https://www.instagram.com/" class="fa fa-instagram border-icon rounded-icon" title="instagram"></a></span>
-									</p>
-								</div>
-							</li>
-							<li class="ds bs cover-image flex-slide">
-								<span class="flexslider-overlay"></span>
-								<img src="images/slide02.jpg" alt="">
-								<div class="container">
-									<div class="row">
-										<div class="col-md-12">
-											<div class="intro_layers_wrapper justify-content-center">
-												<div class="intro_layers rotate_layers">
-													<div class="intro_layer" data-animation="fadeInRightBig">
-														<h2 class="text-uppercase intro_before_featured_word text-left">
-															All Makes &
-														</h2>
-													</div>
-													<div class="intro_layer gradient-layer text-center" data-animation="fadeInDown">
-														<h2 class="text-uppercase">
-															<span class="text-layer">
-																<span class="color-main2">$20</span> Off Towing!
-															</span>
-														</h2>
-													</div>
-													<div class="intro_layer text-right" data-animation="fadeInLeftBig">
-														<h2 class="text-uppercase intro_after_featured_word">
-															Models Welcome
-														</h2>
-													</div>
-												</div> <!-- eof .intro_layers -->
+										</div> <!-- eof .intro_layers_wrapper -->
+									</div> <!-- eof .col-* -->
+								</div><!-- eof .row -->
+							</div><!-- eof .container-fluid -->
+							<div class="ds social-flex d-none d-lg-block">
+								<p class="social-icons with-border">
+									<span><a href="https://www.facebook.com/" class="fa fa-facebook border-icon rounded-icon" title="facebook"></a></span>
+									<span><a href="https://telegram.org/" class="fa fa-paper-plane border-icon rounded-icon" title="telegram"></a></span>
+									<span><a href="https://www.instagram.com/" class="fa fa-instagram border-icon rounded-icon" title="instagram"></a></span>
+								</p>
+							</div>
+						</li>
+						<li class="ds bs cover-image flex-slide">
+							<span class="flexslider-overlay"></span>
+							<img src="images/slide02.jpg" alt="">
+							<div class="container">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="intro_layers_wrapper justify-content-center">
+											<div class="intro_layers rotate_layers">
+												<div class="intro_layer" data-animation="fadeInRightBig">
+													<h2 class="text-uppercase intro_before_featured_word text-left">
+														All Makes &
+													</h2>
+												</div>
+												<div class="intro_layer gradient-layer text-center" data-animation="fadeInDown">
+													<h2 class="text-uppercase">
+														<span class="text-layer">
+															<span class="color-main2">$20</span> Off Towing!
+														</span>
+													</h2>
+												</div>
+												<div class="intro_layer text-right" data-animation="fadeInLeftBig">
+													<h2 class="text-uppercase intro_after_featured_word">
+														Models Welcome
+													</h2>
+												</div>
+											</div> <!-- eof .intro_layers -->
 
-											</div> <!-- eof .intro_layers_wrapper -->
-										</div> <!-- eof .col-* -->
-									</div><!-- eof .row -->
-								</div><!-- eof .container-fluid -->
-								<div class="ds social-flex d-none d-lg-block">
-									<p class="social-icons with-border">
-										<span><a href="#" class="fa fa-facebook border-icon rounded-icon" title="facebook"></a></span>
-										<span><a href="#" class="fa fa-paper-plane border-icon rounded-icon" title="telegram"></a></span>
-										<span><a href="#" class="fa fa-instagram border-icon rounded-icon" title="instagram"></a></span>
-									</p>
-								</div>
-							</li>
-							<li class="ds bs cover-image flex-slide">
-								<span class="flexslider-overlay"></span>
-								<img src="images/slide03.jpg" alt="">
-								<div class="container">
-									<div class="row">
-										<div class="col-md-12">
-											<div class="intro_layers_wrapper justify-content-center">
-												<div class="intro_layers rotate_layers">
-													<div class="intro_layer" data-animation="fadeInRightBig">
-														<h2 class="text-uppercase intro_before_featured_word text-left">
-															All Makes &
-														</h2>
-													</div>
-													<div class="intro_layer gradient-layer text-center" data-animation="fadeInDown">
-														<h2 class="text-uppercase">
-															<span class="text-layer">
-																<span class="color-main2">$20</span> Off Towing!
-															</span>
-														</h2>
-													</div>
-													<div class="intro_layer text-right" data-animation="fadeInLeftBig">
-														<h2 class="text-uppercase intro_after_featured_word">
-															Models Welcome
-														</h2>
-													</div>
-												</div> <!-- eof .intro_layers -->
+										</div> <!-- eof .intro_layers_wrapper -->
+									</div> <!-- eof .col-* -->
+								</div><!-- eof .row -->
+							</div><!-- eof .container-fluid -->
+							<div class="ds social-flex d-none d-lg-block">
+								<p class="social-icons with-border">
+									<span><a href="#" class="fa fa-facebook border-icon rounded-icon" title="facebook"></a></span>
+									<span><a href="#" class="fa fa-paper-plane border-icon rounded-icon" title="telegram"></a></span>
+									<span><a href="#" class="fa fa-instagram border-icon rounded-icon" title="instagram"></a></span>
+								</p>
+							</div>
+						</li>
+						<li class="ds bs cover-image flex-slide">
+							<span class="flexslider-overlay"></span>
+							<img src="images/slide03.jpg" alt="">
+							<div class="container">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="intro_layers_wrapper justify-content-center">
+											<div class="intro_layers rotate_layers">
+												<div class="intro_layer" data-animation="fadeInRightBig">
+													<h2 class="text-uppercase intro_before_featured_word text-left">
+														All Makes &
+													</h2>
+												</div>
+												<div class="intro_layer gradient-layer text-center" data-animation="fadeInDown">
+													<h2 class="text-uppercase">
+														<span class="text-layer">
+															<span class="color-main2">$20</span> Off Towing!
+														</span>
+													</h2>
+												</div>
+												<div class="intro_layer text-right" data-animation="fadeInLeftBig">
+													<h2 class="text-uppercase intro_after_featured_word">
+														Models Welcome
+													</h2>
+												</div>
+											</div> <!-- eof .intro_layers -->
 
-											</div> <!-- eof .intro_layers_wrapper -->
-										</div> <!-- eof .col-* -->
-									</div><!-- eof .row -->
-								</div><!-- eof .container-fluid -->
-								<div class="ds social-flex d-none d-lg-block">
-									<p class="social-icons with-border">
-										<span><a href="#" class="fa fa-facebook border-icon rounded-icon" title="facebook"></a></span>
-										<span><a href="#" class="fa fa-paper-plane border-icon rounded-icon" title="telegram"></a></span>
-										<span><a href="#" class="fa fa-instagram border-icon rounded-icon" title="instagram"></a></span>
-									</p>
-								</div>
-							</li>
-						</ul>
-					</div> <!-- eof flexslider -->
-				</section>
+										</div> <!-- eof .intro_layers_wrapper -->
+									</div> <!-- eof .col-* -->
+								</div><!-- eof .row -->
+							</div><!-- eof .container-fluid -->
+							<div class="ds social-flex d-none d-lg-block">
+								<p class="social-icons with-border">
+									<span><a href="#" class="fa fa-facebook border-icon rounded-icon" title="facebook"></a></span>
+									<span><a href="#" class="fa fa-paper-plane border-icon rounded-icon" title="telegram"></a></span>
+									<span><a href="#" class="fa fa-instagram border-icon rounded-icon" title="instagram"></a></span>
+								</p>
+							</div>
+						</li>
+					</ul>
+				</div> <!-- eof flexslider -->
+			</section>
 
 					<div class="row c-mb-45 c-mb-lg-0">
 						<div class="divider-40 d-block d-lg-none"></div>
@@ -1069,47 +1113,7 @@
 				</div>
 			</section>
 
-			<section class="ls s-py-55 s-py-lg-75" id="partners">
-				<div class="container-fluid">
-					<div class="divider-3"></div>
-					<div class="row">
-						<div class="col-sm-12 text-center">
-							<div class="owl-carousel partners-carousel" data-center="true" data-loop="true" data-responsive-lg="10" data-responsive-md="6" data-responsive-sm="4" data-responsive-xs="3">
-								<a href="#">
-									<img src="images/partners/01.png" alt="">
-								</a>
-								<a href="#">
-									<img src="images/partners/02.png" alt="">
-								</a>
-								<a href="#">
-									<img src="images/partners/03.png" alt="">
-								</a>
-								<a href="#">
-									<img src="images/partners/04.png" alt="">
-								</a>
-								<a href="#">
-									<img src="images/partners/05.png" alt="">
-								</a>
-								<a href="#">
-									<img src="images/partners/06.png" alt="">
-								</a>
-								<a href="#">
-									<img src="images/partners/07.png" alt="">
-								</a>
-								<a href="#">
-									<img src="images/partners/08.png" alt="">
-								</a>
-								<a href="#">
-									<img src="images/partners/09.png" alt="">
-								</a>
-								<a href="#">
-									<img src="images/partners/10.png" alt="">
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+		
 
 			<footer class="page_footer text-center text-md-left ds ms s-pt-65 s-pt-lg-125 s-pb-lg-35 c-gutter-40 main-footer">
 				<div class="container">

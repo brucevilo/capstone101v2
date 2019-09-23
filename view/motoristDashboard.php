@@ -90,72 +90,7 @@ session_start();
 
 			<div class="header_absolute s-parallax ds bs s-overlay">
 
-				<!--topline section visible only on small screens|-->
-				<section class="page_toplogo ds s-overlay s-pt-10 s-pb-5 s-py-lg-30">
-					<div class="container">
-						<div class="row align-items-center">
-							<div class="col-lg-12">
-								<div class="d-lg-flex justify-content-lg-end align-items-lg-center">
-									<div class="mr-auto">
-										<!--
-							if you want to display toplogo info on smaller screens
-							than use following CSS classes below:
-						 	d-sm-flex justify-content-sm-center
-						 -->
-										<div class="d-none d-lg-flex justify-content-center justify-content-lg-start">
-											<a href="mechanicDashboard.php" class="logo">
-												<img src="images/logo.png" alt="">
-												<span class="logo-text fw-500">Mechannic<span class="fw-200">Hero</span></span>
-											</a>
-										</div>
-									</div>
-									<!--
-						if you want to display toplogo info on smaller screens
-						than use following CSS classes below:
-						d-sm-flex justify-lg-content-end justify-content-sm-between align-items-center
-					-->
-									<div class="d-flex justify-lg-content-end align-items-center meta-icons">
-										<div class="media">
-											<div class="icon-styled color-main fs-20">
-												<i class="ico-email"></i>
-											</div>
-											<div class="media-body">
-												<h6>Mail Us</h6>
-												<p class="fw-400">
-													Info@MechanicHero.com
-												</p>
-											</div>
-										</div>
-										<div class="media d-none d-md-flex">
-											<div class="icon-styled color-main fs-20">
-												<i class="ico-placeholder"></i>
-											</div>
-											<div class="media-body">
-												<h6>Location</h6>
-												<p class="fw-400">
-													Waukesha, WI 53186
-												</p>
-											</div>
-										</div>
-										<div class="media">
-											<div class="icon-styled color-main fs-20">
-												<i class="ico-phone-call"></i>
-											</div>
-											<div class="media-body">
-												<h6>Phone</h6>
-												<p class="fw-400">
-													+1 23 456 78 90
-												</p>
-											</div>
-										</div>
-									
-									</div>
-								</div>
-								<!-- header toggler -->
-							</div>
-						</div>
-					</div>
-				</section>
+				
 
 
 				<!--eof topline-->
@@ -164,13 +99,14 @@ session_start();
 				<header class="page_header s-py-10 s-py-lg-0 ds ms s-overlay nav-bordered justify-nav-center">
 					<div class="container-fluid">
 						<div class="row align-items-center">
-							<div class="d-lg-none col-11">
+							<div class="col-md-12">
 								<a href="mechanicDashboard.php" class="logo">
 									<img src="images/logo.png" alt="">
 									<span class="logo-text fw-500">Mechanic<span class="fw-200">Hero</span></span>
 								</a>
 							</div>
-							<div class="col-xl-12">
+							<br>
+							<div class="col-12">
 
 								<div class="nav-wrap">
 									<!-- main nav start -->
@@ -178,16 +114,16 @@ session_start();
 										<ul class="nav sf-menu">
                                         <li class="active">
 												<a href="motoristDashboard.php">Service</a>
-											
 											</li>
 
 											<li>
 												<a href="motoristVehicle.php">Vehicle</a>
 											</li>
-										
 											<li>
-												<a href="motoristProfile.php">Profile</a>
+												<a href="motoristProfile.php"><i class="ico-user"></i></a>
 											</li>
+											<li>
+											
 						<?php include('../controller/getAllSRR.php')?>
 									<!-- notification start -->
   												<li>
@@ -209,10 +145,13 @@ session_start();
 														<div class="widget_shopping_cart_content">		
 														<?php 
 											 foreach ($row as $rows){ 
-												  if($rows['status']=='unread'){?>														
+												 
+												  if($rows['status']=='unread'){?>		
+												  												
 														<?php echo "<a href='motoristResponRequest.php?id=".$rows['serve_post_respid']."'>";?>
 																	<small><i><?php echo date('F j, Y, g:i a',strtotime($rows['date']));?></i></small><br>
-																		<span class="product-title fw-500">Mr/Ms.<?php echo $rows['lastname'];?> response to your service request.</span>
+																		<span class="product-title fw-500">Mr/Ms.<?php echo $rows['lastname'];?>
+																		 response to your service request.</span>
 												  </b>
 																	</a>
 															
@@ -221,16 +160,19 @@ session_start();
 																	</div>
 
 																		</div>
+																		<div class="widget_shopping_cart_content">	
 											<?php
 												  }
+												  
 										  if($rows['status']=='read'){
 											?>		
-														<div class="widget_shopping_cart_content">		
+															
 																						
 														<?php		
 														echo "<a href='motoristResponRequest.php?id=".$rows['serve_post_respid']."'>";?>
 																	<small><i><?php echo date('F j, Y, g:i a',strtotime($rows['date']));?></i></small><br>
-																		<span class="">Mr/Ms. 	<?php echo $rows['lastname'];?> response to your service request.</span>
+																		<span class="">Mr/Ms. 	<?php echo $rows['lastname'];?> 
+																		response to your service request.</span>
 																	
 																	</a>
 															
@@ -254,9 +196,12 @@ session_start();
 
 
 											<li>
-												<a href="logout.php">Logout</a>
+												<a href="logout.php"><i class="fa fa-sign-out"></i></a>
 											<li>
-										
+											<!-- <li  class="d-md-none d-sm-none col-xs-2">
+												<a href="logout.php"><i class="oi oi-person"></i></a>
+											<li>
+										 -->
 									</nav>
 									<!-- eof main nav -->
 
@@ -269,20 +214,27 @@ session_start();
 
 					<!-- header toggler -->
 
-					<span class="toggle_menu"><span></span></span>
+					<!-- <span class="toggle_menu"><span></span></span> -->
 
 				</header>
+			<br>
+			<br>
+			<style>
 			
-<?php foreach($data as $u ) {?>
-				<article class="post side-item text-center text-md-left content-padding bordered event-post">
+			</style>
+<?php
+foreach($data as $u ) {?>
+				<article class="post side-item text-center text-md-left content-padding bordered event-post mechanic">
 							
 
 									<div class="col-xl-8 col-lg-7 col-md-6">
 										<div class="divider-11 d-none d-xl-block"></div>
 										<div class="item-content">
 											<h6>
-											<?php $plateno=$u['vehicle_plateno'];?>
-												<a href="../view/mechanicmoto3.php?id=<?php echo $plateno;?>";>
+											<?php $plateno=$u['vehicle_plateno'];
+					
+											?>
+												<a href="../view/mechanicmoto3.php?id=<?php echo $plateno;?>& vehicle_id=<?php echo $u['servreqid']?>">
 													Car Plate No:  <?php echo $plateno;?>
 												</a>
 											</h6>
@@ -299,6 +251,10 @@ session_start();
 												<br/>
 												Description: <?php echo $u['problems'];?>
 											</p>
+											<a href="../view/mechanicProfile1.php?id=<?php echo $u['mechanicid'];?>";>				
+												Mechanic Name :<b> <?php echo $u['lastname'].", ".$u['firstname'];?> </b>
+												</a>
+										
 
 										</div>
 									</div>
@@ -307,122 +263,7 @@ session_start();
 
 
 <?php }?>
-
-
-
-
-			<footer class="page_footer text-center text-md-left ds ms s-pt-65 s-pt-lg-125 s-pb-lg-35 c-gutter-40 main-footer">
-				<div class="container">
-					<div class="row">
-						<div class="divider-20 d-none d-lg-block"></div>
-
-						<div class="col-md-6 col-lg-3 animate" data-animation="fadeInUp">
-
-							<div class="widget widget_icons_list">
-								<a href="mechanicDashboard.php" class="logo">
-									<img src="images/logo.png" alt="">
-									<span class="logo-text fw-500">Mechannic<span class="fw-200">Hero</span></span>
-								</a>
-								<div class="media side-icon-box">
-									<div class="icon-styled color-main">
-										<i class="fa fa-map-marker"></i>
-									</div>
-									<p class="media-body color-grey">2688 Simpson Avenue Harrisburg, PA 17109 </p>
-								</div>
-								<div class="media side-icon-box">
-									<div class="icon-styled color-main">
-										<i class="fa fa-phone"></i>
-									</div>
-
-									<p class="media-body color-grey">+1 234 56 78</p>
-								</div>
-								<div class="media side-icon-box">
-									<div class="icon-styled color-main">
-										<i class="fa fa-envelope"></i>
-									</div>
-									<p class="media-body color-grey">
-										<a href="mailto:">info@MechnicHero.com</a>
-									</p>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-md-6 col-lg-3 animate order-md-3 order-lg-2" data-animation="fadeInUp">
-							<div class="widget widget_page_links">
-								<h3>Useful Pages</h3>
-								<ul>
-									<li>
-										<a href="#"><i class="ico-check-circle"></i>Contact Us</a>
-									</li>
-									<li>
-										<a href="#"><i class="ico-check-circle"></i>Blog post</a>
-									</li>
-									<li>
-										<a href="#"><i class="ico-check-circle"></i>About Us</a>
-									</li>
-									<li>
-										<a href="#"><i class="ico-check-circle"></i>Services</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="col-md-6 col-lg-3 animate order-md-4 order-lg-3" data-animation="fadeInUp">
-							<div class="widget widget_services_links">
-								<h3>Services</h3>
-								<ul>
-									<li>
-										<a href="#"><i class="ico-check-circle"></i>Exterior Hand Wash</a>
-									</li>
-									<li>
-										<a href="#"><i class="ico-check-circle"></i>Tower Hand Dry</a>
-									</li>
-									<li>
-										<a href="#"><i class="ico-check-circle"></i>Tire Dressing</a>
-									</li>
-									<li>
-										<a href="#"><i class="ico-check-circle"></i>Wheel Shine</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="col-md-6 col-lg-3 c-gutter-10 animate order-lg-4" data-animation="fadeInUp">
-							<div class="widget widget_working_hours">
-								<h3>Our Hours</h3>
-								<ul>
-									<li class="row">
-										<div class="color-grey col-3">
-											Mn-Fr
-										</div>
-										<div class="col-md-9 col-5">
-											<span class="color-darkgrey">9.<sup>00</sup>am - 8.<sup>00</sup>pm</span>
-										</div>
-									</li>
-									<li class="row">
-										<div class="color-grey col-3">
-											Sat
-										</div>
-										<div class="col-md-9 col-5">
-											<span class="color-darkgrey">9.<sup>00</sup>am - 4.<sup>00</sup>pm</span>
-										</div>
-									</li>
-									<li class="row">
-										<div class="color-grey col-3">
-											Sun
-										</div>
-										<div class="col-md-9 col-5">
-											<span class="color-darkgrey">output</span>
-										</div>
-									</li>
-								</ul>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</footer>
-
+<!-- 
 
 			<section class="page_copyright ds ms s-pt-5 s-pb-25 s-py-lg-20">
 				<div class="container">
@@ -441,7 +282,7 @@ session_start();
 						<div class="divider-20 d-none d-lg-block"></div>
 					</div>
 				</div>
-			</section>
+			</section> -->
 
 
 		</div><!-- eof #box_wrapper -->

@@ -191,7 +191,9 @@ session_start();
 
 			</div>
 <?php
-
+$ref_id=$_GET['id'];
+include('../controller/getVehicleById.php');
+foreach($row as $rows){
 ?>
 
 			<section class="ls s-py-60 s-py-lg-100 s-py-xl-150 c-gutter-60">
@@ -200,7 +202,7 @@ session_start();
 						<main class="offset-lg-1 col-lg-10">
 							<article class="vertical-item post type-event status-publish format-standard has-post-thumbnail events-post single-post">
 								<div class="item-media post-thumbnail rounded-top">
-									<img src="images/gallery/04.jpg" alt="">
+									<img src="../controller/images/<?php echo $rows['vehicle_image']?>" alt="">
 								</div>
 								
 								<div class="item-content">
@@ -251,7 +253,7 @@ session_start();
 								</div>
 								<!-- .item-content -->
 							</article>
-
+<?php }?>
 
 							<div id="comments" class="post-comments comments-area rounded">
 								<h4 id="reply-title" class="fw-700 comment-reply-title">Leave<span class="text-gradient">Comment</span></h4>

@@ -27,11 +27,11 @@ if(!empty($row))
             $id =$data['motoristid'];
             $_SESSION['motorist'] = $id; 
             $_SESSION['user_id'] = $user_id;
-            
+            $_SESSION['email'] = $email;
             
             echo "<script>alert('Successfully Login');window.location='../view/motoristDashboard.php'</script>";
         }
-    else{
+    else if($type == "Mechanic") {
           
         $table = "mechanic";
         $field_id = "email";
@@ -39,10 +39,14 @@ if(!empty($row))
         // echo $email;
         $data=$db->getId($table,$field_id,$ref_id);
         $id =$data['mechanicid'];
-       
+        $_SESSION['email'] = $email;
         $_SESSION['mechanic'] = $id; 
         $_SESSION['user_id'] = $user_id;
         echo "<script>alert('Successfully Login');window.location='../view/mechanicDashboard.php'</script>";
+    }
+    else
+    {
+        echo "<script>alert('Successfully Login');window.location='../view/adminDashboard.php'</script>";
     }
     
 }
